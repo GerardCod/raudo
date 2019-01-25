@@ -9,8 +9,7 @@
 }
 
 .background-awesome {
-  background: url("../../../assets/img/taxis.jpg") center / cover,
-    linear-gradient(#984ec6, #3eb3fd);
+  background: center / cover, linear-gradient(#984ec6, #3eb3fd);
   background-blend-mode: darken;
 }
 
