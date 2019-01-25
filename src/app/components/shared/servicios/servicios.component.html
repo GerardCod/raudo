@@ -1,0 +1,11 @@
+<section class="services">
+  <article class="card" *ngFor="let servicio of servicios">
+    <figure class="card-image-container">
+      <img class="card-image" [src]="servicio.imagen" alt="">
+    </figure>
+    <div class="card-caption">
+      <h2 class="card-title font-Roboto">{{servicio.titulo}}</h2>
+      <p class="card-description font-Roboto">{{servicio.descripcion}}</p>
+    </div>
+  </article>
+</section>

@@ -1,0 +1,126 @@
+.main-banner {
+  width: 100%;
+  height: 70vh;
+  border-bottom-left-radius: 60vw 40vh;
+  border-bottom-right-radius: 90vw 70vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 4vh 5vw;
+}
+
+.background-awesome {
+  background: url("../../../assets/img/taxis.jpg") center / cover,
+    linear-gradient(#984ec6, #3eb3fd);
+  background-blend-mode: darken;
+}
+
+.font-title {
+  font-size: 4em;
+}
+
+.font-text {
+  font-size: 1.2em;
+}
+
+.welcome-container {
+  width: 60%;
+  margin: 10vw;
+}
+
+.app-container {
+  width: 40%;
+}
+
+.app {
+  max-width: 280px;
+  max-height: 80vh;
+  width: 260px;
+  height: 80vh;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 909px){
+    .main-banner{
+        padding: 4vh 1vw;
+        height: 100vh;
+        margin-bottom: 6vh;
+    }
+
+    .app-container{
+        margin-bottom: 5vh;
+        height: 40vh;
+    }
+
+    .welcome-container{
+      width: 100%;
+      height: 30vh;
+      margin: 5vh 0;
+    }
+
+    .font-title{
+      font-size: 3em;
+    }
+
+    .font-text{
+      font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .main-banner {
+    display: block;
+    height: 100vh;
+    padding-bottom: 2vh;
+  }
+
+  .welcome-container {
+    display: block;
+    width: 100%;
+    max-height: 50vh;
+  }
+
+  .app-container {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    padding: 0 10vw;
+  }
+
+  .app {
+    width: 260px;
+    height: 70vh;
+    margin: 0 auto;
+  }
+
+  .main-title{
+    text-align: center;
+  }
+
+  .main-description{
+    text-align: justify;
+    margin: 0 1em;
+  }
+}
+
+@media screen and (max-width: 425px){
+  .app-container{
+    width: 100%;
+  }
+
+  .app{
+    width: 200px;
+    height: 60vh;
+  }
+
+  .main-banner{
+    height: auto;
+    padding: 3vh 1vh;
+    border-bottom-left-radius: 60vh 80vh;
+    border-bottom-right-radius: 50vh 90vh;
+    margin: 0;
+  }
+
+  
+}

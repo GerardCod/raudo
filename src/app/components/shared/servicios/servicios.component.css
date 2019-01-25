@@ -1,0 +1,97 @@
+.services{
+    width: 100%;
+    height: 80vh;
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card{
+    width: 25vw;
+    height: 70vh;
+    border-radius: 2vw;
+    display: block;
+    border: none;
+    transition-property: box-shadow;
+    transition-duration: 0.5s;
+    transition-delay: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.card-image-container{
+    width: 100%;
+    height: 30%;
+    border-radius: 2vw;
+    margin-bottom: 4em;
+}
+
+.card-image{
+    width: 100%;
+    object-fit: cover;
+    max-height: 30vh;
+    border-radius: 2vw;
+}
+
+.card-caption{
+    width: 100%;
+    height: 50%;
+    padding: 1vh 2vw;
+}
+
+.card-description{
+    margin-top: 1em;
+    text-align: justify;
+    font-size: 1em;
+}
+
+.card-title{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.card:hover{
+    box-shadow: rgba(100, 100, 100, 0.6) .1em .1em .1em ;
+}
+
+@media screen and (max-width: 768px){
+    .services{
+        display: block;
+        padding: 0 5vw;
+        width: 100%;
+        height: auto;        
+    }
+
+    .card{
+        width: 90vw;
+        margin: 5vh 0;
+    }
+    
+}
+
+@media screen and (max-width: 425px){
+    .card{
+        height: 50vh;
+    }
+    .services{
+        margin: 0;
+    }
+
+    .card-image-container{
+        height: 20vh;
+    }
+
+    .card-caption{
+        padding: 1em;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .card-image-container{
+        height: 15vh;
+    }
+
+    .card-caption{
+        padding: 2em 1em;
+    }
+}
