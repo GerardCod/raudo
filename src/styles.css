@@ -44,6 +44,17 @@
     background: linear-gradient(45deg, rgb(201, 200, 200) 10%, rgb(255,255,255));
 }
 
+.border-primary {
+    border: 1.5px solid #3eb3fd;
+    border-radius: 1vh 1vh 0 0;
+    display: block;
+}
+
+.border-primary-normal{
+    border: 1.5px solid #3eb3fd;
+}
+
+
 .fade-in{
     animation: fadeIn 1.5s ease-in-out 0.5s;
 }

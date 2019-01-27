@@ -9,7 +9,7 @@
 }
 
 .background-awesome {
-  background: center / cover, linear-gradient(#984ec6, #3eb3fd);
+  background: center / cover, linear-gradient(135deg,#984ec6 20%, #3eb3fd);
   background-blend-mode: darken;
 }
 

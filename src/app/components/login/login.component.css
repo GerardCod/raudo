@@ -1,0 +1,34 @@
+
+
+.tabs{
+    width: 30vw;
+    height: 10vh;
+    margin: 0 auto 10vh auto;
+    display: flex;
+}
+
+.tab-login{
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.tab-singup{
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.tab-login>a, .tab-singup>a{
+    text-decoration: none;
+    font-size: 1em;
+    color: black;
+    font-family: 'Roboto';
+}
+
+.tab-active{
+    border-bottom: 4px solid #3eb3fd;
+    color: #3eb3fd;
+}
