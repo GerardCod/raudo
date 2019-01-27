@@ -2,6 +2,7 @@
 
 .tabs{
     width: 30vw;
+<<<<<<< HEAD
     height: 10vh;
     margin: 0 auto 10vh auto;
     display: flex;
@@ -32,3 +33,31 @@
     border-bottom: 4px solid #3eb3fd;
     color: #3eb3fd;
 }
+=======
+    height: 12vh;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 30vh;
+}
+
+.tab{
+    width: 50%;
+    height: 100%;
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-active{
+    border-bottom: 4px solid #3eb3fd;
+}
+
+.tab-link{
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.tab-link:active{
+    color: #3eb3fd;
+}
+>>>>>>> respaldo
