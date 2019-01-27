@@ -1,9 +1,9 @@
-<section>
-  <div>
-    <p>Iniciar sesión</p>
+<router-outlet></router-outlet>
+<section class="tabs border-primary-normal">
+  <div routerLinkActive="tab-active" class="tab">
+    <a [routerLink]="['iniciar']" class="tab-link font-Roboto dark-bold">Iniciar sesión</a>
   </div>
-  <div>
-    <p>Registrarse</p>
+  <div routerLinkActive="tab-active" class="tab">
+    <a [routerLink]="['registro']" class="tab-link font-Roboto dark-bold">Registrarse</a>
   </div>
 </section>
-<router-outlet></router-outlet>

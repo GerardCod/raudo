@@ -71,3 +71,8 @@
         opacity: 1;
     }
 }
+
+.border-primary-normal{
+    border: 2px solid #3eb3fd;
+    display: block;
+}
