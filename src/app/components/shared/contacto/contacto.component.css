@@ -1,8 +1,7 @@
 .contacto{
     width: 100%;
     height: auto;
-    border: 1px solid rgba(150,150,150,0.6);
-    border-top: 0.5em solid #3eb3fd;
+    border-top: 0.5em solid #1b577b;
     display: flex;
     justify-content: space-between;
     padding-left: 2em;

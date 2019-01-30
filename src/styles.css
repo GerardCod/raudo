@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 *{
     margin:0;
     box-sizing: border-box;
@@ -18,11 +20,15 @@
 }
 
 .background-gradient{
-    background: linear-gradient(45deg, #984ec6 20%, #3eb3fd);   
+    background: linear-gradient(45deg, #1b577b 0%, #341a4a 100%);
 }
 
 .background-dark{
     background: rgba(10,10,10,0.85);
+}
+
+.background-darken{
+    background: rgba(10, 10, 10, 0.9);
 }
 
 .white-bold{
@@ -37,7 +43,7 @@
 
 .link-active > a{
     padding: 1.2em 0.4em;
-    background:  #1ea2cd;
+    color:  #1ea2cd;
 }
 
 .background-light{
@@ -45,7 +51,7 @@
 }
 
 .border-primary {
-    border: 1.5px solid #3eb3fd;
+    border: 1.5px solid #1b577b;
     border-radius: 1vh 1vh 0 0;
     display: block;
 }
@@ -82,11 +88,8 @@
         opacity: 1;
     }
 }
-<<<<<<< HEAD
-=======
 
 .border-primary-normal{
     border: 2px solid #3eb3fd;
     display: block;
 }
->>>>>>> respaldo

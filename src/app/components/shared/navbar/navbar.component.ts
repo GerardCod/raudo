@@ -6,23 +6,20 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  activo = false;
-  @ViewChild('btnMenu') btnMenu: ElementRef;
-  pantalla = window.matchMedia('screen and (max-width:768px)');
+  activo: boolean;
+  @ViewChild('btnmenu') btnMenu: ElementRef;
 
-  constructor() { }
+  constructor() {
+    this.activo = false;
+  }
 
   ngOnInit() {
-    this.pantalla.addListener(this.validar);
+    console.log(this.btnMenu);
+
   }
 
-  validar(event: any) {
-    if (event.matches) {
-      console.log(this.btnMenu);
-    }
-  }
-
-  mostrarOcultar(){
+  mostrarOcultar() {
     this.activo = !this.activo;
   }
+
 }

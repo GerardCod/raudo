@@ -3,7 +3,13 @@
     height: auto;
     padding: 2em;
     display: flex;
+    margin: 0;
     justify-content: space-around;
+}
+
+.white-input{
+    color: white;
+    border-color: white;
 }
 
 .image-container{
@@ -63,4 +69,9 @@ p:nth-child(n){
     color: #3eb3fd;
     font-size: 1em;
     font-family: 'Roboto';
+}
+
+mat-form-field{
+    border: white;
+    color: white;
 }

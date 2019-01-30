@@ -9,7 +9,7 @@
 }
 
 .background-awesome {
-  background: center / cover, linear-gradient(135deg,#984ec6 20%, #3eb3fd);
+  background: center / cover, linear-gradient(135deg, #1b577b 0%, #341a4a 100%);;
   background-blend-mode: darken;
 }
 
@@ -41,7 +41,7 @@
 
 @media screen and (max-width: 909px){
     .main-banner{
-        padding: 4vh 1vw;
+        padding: 4vh 0;
         height: 100vh;
         margin-bottom: 6vh;
     }
@@ -67,10 +67,14 @@
 }
 
 @media screen and (max-width: 768px) {
+
   .main-banner {
+    width: 100vw;
     display: block;
     height: 100vh;
     padding-bottom: 2vh;
+    padding-right: 0;
+    margin-right: 0;
   }
 
   .welcome-container {
@@ -114,10 +118,11 @@
   }
 
   .main-banner{
+    width: 100vw;
     height: auto;
-    padding: 3vh 1vh;
-    border-bottom-left-radius: 60vh 80vh;
-    border-bottom-right-radius: 50vh 90vh;
+    padding: 3vh 0;
+    border-bottom-left-radius: 70% 100%;
+    border-bottom-right-radius: 70% 100%;
     margin: 0;
   }
 
