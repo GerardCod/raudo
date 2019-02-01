@@ -6,7 +6,7 @@
 
 .form-container{
     padding-top: 22vh;
-    height: 110vh;
+    height: 105vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,18 +21,18 @@
 }
 
 .border-primary{
-    border: 2px solid #3eb3fd;
+    border: 2px solid #1b577b;
     display: block;
     border-top-right-radius: 2vh;
     border-top-left-radius: 2vh;
 }
 
 .form-input:focus{
-    border: 2px solid #3eb3fd;
+    border: 2px solid #1b577b;
 }
 
 .form-input::placeholder:focus{
-    color: #3eb3fd;
+    color: #1b577b;
 }
 
 .form-input::placeholder{
@@ -41,10 +41,11 @@
 
 .form-submit{
     width: 100%;
-    height: 12vh;
-    border: none;
-    background-color: #3eb3fd;
-    margin-top: 1em;
+    height: 10vh;
+    border: none ;
+    background: #1b577b;
+    position: relative;
+    bottom: 0;
 }
 
 p{
@@ -55,7 +56,7 @@ p{
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(45deg,#984ec6 , #3eb3fd);
+    background: linear-gradient(45deg,#1b577b 0%, #341a4a 100%);
     position: relative;
     top: -80px;
     left: 33%;

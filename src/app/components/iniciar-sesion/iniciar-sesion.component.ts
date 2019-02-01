@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./iniciar-sesion.component.css']
 })
 export class IniciarSesionComponent implements OnInit {
+  formulario: FormGroup;
 
-  constructor() { }
+  constructor() {
+    this.iniciarFormulario();
+  }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  iniciarFormulario() {
+    this.formulario = new FormGroup({
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'password' : new FormControl(null, [Validators.required])
+    });
+
+  }
+
+  login() {
+    if (this.formulario.invalid) {
+      console.log('invalido');
+    }
   }
 
 }

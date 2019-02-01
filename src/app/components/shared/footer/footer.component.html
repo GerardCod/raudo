@@ -10,15 +10,28 @@
 
   <article class="form-contact">
     <h2 class="font-Roboto font-header white-bold">Contáctanos</h2>
-    <form action="">
+    <form [formGroup]="formulario" action="">
       <p>
-        <mat-form-field appearance="outline">
-          <mat-label>Outline form field</mat-label>
-          <input matInput placeholder="Placeholder" />
-          <mat-hint>Hint</mat-hint>
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Ingrese su email</mat-label>
+          <input matInput placeholder="email" formControlName="email"/>
+          <mat-error *ngIf="formulario.controls['email'].errors.email">
+              Ingresa un email válido
+            </mat-error>
+            <mat-error *ngIf="formulario.controls['email'].errors.required">
+              El email es <strong>requerido</strong>
+            </mat-error> 
         </mat-form-field>
       </p>
-
+      <p>
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Ingrese su número telefónico</mat-label>
+          <input matInput placeholder="teléfono" formControlName="numero"/>
+          <mat-error *ngIf="formulario.controls['numero'].errors.required">
+              Ingresa un número
+          </mat-error> 
+        </mat-form-field>
+      </p>
       <button class="form-submit" type="submit">Enviar</button>
     </form>
   </article>

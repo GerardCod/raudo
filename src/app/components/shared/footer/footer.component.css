@@ -65,13 +65,62 @@ p:nth-child(n){
     width: 100%;
     height: 5vh;
     background: transparent;
-    border: 2px solid #3eb3fd;
-    color: #3eb3fd;
+    border: 2px solid #fff;
+    color: #fff;
     font-size: 1em;
     font-family: 'Roboto';
 }
 
-mat-form-field{
-    border: white;
+.full{
+    width: 100%;
     color: white;
+}
+
+.full input{
+    color: white;
+    border: white;
+}
+
+.full input::placeholder{
+    color: white;
+}
+
+.full mat-label{
+    color: white;
+}
+
+.full mat-hint{
+    color: white
+}
+
+@media screen and (max-width: 768px){
+    .footer{
+        width: 100%;
+        height: 80vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30vh 1fr;
+        gap: 1em;
+    }
+
+    .image-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .img-footer{
+        width: 20vh;
+        height: 20vh;
+        max-width: 80vh;
+        max-height: 80vh;
+    }
+
+    .form-contact{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
 }

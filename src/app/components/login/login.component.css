@@ -1,5 +1,3 @@
-
-
 .tabs{
     width: 30vw;
     height: 10vh;
@@ -29,8 +27,8 @@
 }
 
 .tab-active{
-    border-bottom: 4px solid #3eb3fd;
-    color: #3eb3fd;
+    border-bottom: 4px solid #1b577b;
+    color: #1b577b;
 }
 
 .tab{
@@ -42,7 +40,7 @@
 }
 
 .tab-active{
-    border-bottom: 4px solid #3eb3fd;
+    border-bottom: 4px solid #1b577b;
 }
 
 .tab-link{
@@ -51,6 +49,6 @@
 }
 
 .tab-link:active{
-    color: #3eb3fd;
+    color: #1b577b;
 }
 
