@@ -10,7 +10,9 @@ export class RegistroComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor() { }
+  constructor() {
+    this.iniciarFormulario();
+  }
 
   ngOnInit() {
   }

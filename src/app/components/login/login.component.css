@@ -1,29 +1,13 @@
+router-outlet{
+    margin-bottom: 0;
+   
+}
+
 .tabs{
     width: 30vw;
     height: 10vh;
     margin: 0 auto 10vh auto;
     display: flex;
-}
-
-.tab-login{
-    display: inherit;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-}
-
-.tab-singup{
-    display: inherit;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-}
-
-.tab-login>a, .tab-singup>a{
-    text-decoration: none;
-    font-size: 1em;
-    color: black;
-    font-family: 'Roboto';
 }
 
 .tab-active{
@@ -52,3 +36,26 @@
     color: #1b577b;
 }
 
+@media screen and (max-width: 1024px) {
+    .tabs{
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tabs{
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .tabs{
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .tabs{
+        width: 95vw;
+    }
+}
