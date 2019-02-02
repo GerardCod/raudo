@@ -16,6 +16,15 @@ import { ServiciosComponent } from './components/shared/servicios/servicios.comp
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ConductoresComponent } from './components/conductores/conductores.component';
+import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
+import { AgregarConductorComponent } from './components/agregar-conductor/agregar-conductor.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { MapComponent } from './components/map/map.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { WrapperComponent } from './components/wrapper/wrapper.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +36,16 @@ import { LoginComponent } from './components/login/login.component';
     ServiciosComponent,
     IniciarSesionComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    ConductoresComponent,
+    SidebarComponent,
+    AgregarConductorComponent,
+    ClientesComponent,
+    MapComponent,
+    PerfilComponent,
+    InicioComponent,
+    WrapperComponent
   ],
   imports: [
     BrowserModule,
