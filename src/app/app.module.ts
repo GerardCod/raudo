@@ -19,6 +19,8 @@ import {
   MatSortModule
 } from '@angular/material';
 
+import { AgmCoreModule } from '@agm/core';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -79,7 +81,10 @@ import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

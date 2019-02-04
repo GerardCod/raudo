@@ -15,8 +15,6 @@ export interface TaxiData {
   delete: string;
 }
 
-const COLORS: string[] = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
 const NAMES: string[] = ['María', 'Arturo', 'Olivia', 'Armando', 'Amelia', 'Javier',
   'Charlotte', 'Teodora', 'Israel', 'Oliver', 'Isabella', 'Juan',
   'Cora', 'Levi', 'Violeta', 'Axel', 'Mia', 'Tomas', 'Elizabeth'];
