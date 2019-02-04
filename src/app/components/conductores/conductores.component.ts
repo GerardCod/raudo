@@ -87,4 +87,5 @@ function createNewUser(id: number): TaxiData {
     update: 'event_note',
     delete: 'cancel'
   };
+
 }
