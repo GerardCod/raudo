@@ -13,7 +13,10 @@ import {
   MatSelectModule,
   MatToolbarModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -73,7 +76,10 @@ import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-
     MatSelectModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent],
