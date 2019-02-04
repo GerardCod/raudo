@@ -1,0 +1,103 @@
+/* *{
+    border: 1px solid red;
+} */
+
+.main{
+    width: 100%;
+    height: 100vh;
+    background: #ebe9e9;
+    padding: 5vh 5vw;
+}
+
+.container{
+    display: grid;
+    grid-template: repeat(3, minmax(200px, 1fr)) / repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1em;
+}
+
+.table{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    background: white;
+}
+
+.profile{
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background: white;
+    box-shadow: 1px 1px 1px 1px rgba(50, 50, 50, 0.3);
+}
+
+.profile-back{
+    width: 100%;
+    height: 35%;
+    /* border: 1px solid blue; */
+}
+
+.profile-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* border: 1px solid green; */
+}
+
+.profile-avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1em solid white;
+}
+
+.float{
+    position: relative;
+    top: -1px;
+    right: 26%;
+    left: 26%;
+}
+
+.profile-data{
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -100px;
+}
+
+.data-user{
+    width: 100%;
+    height: 100%;
+    padding: 0 2vw;
+    /* border: 1px solid red; */
+}
+
+.data-user h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.font-title{
+    font-size: 1.8em;
+}
+
+.font-description{
+    font-size: 1.2em;
+}
+
+.form-header{
+    width: 102%;
+    height: 10vh;
+    background: linear-gradient(45deg, #1b577b 0%, #341a4a 100%);
+    position: relative;
+    top: -40px;
+    left: -7px;
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.form-header-title{
+    margin-left: 3em;
+}

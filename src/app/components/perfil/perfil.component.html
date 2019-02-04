@@ -1,3 +1,26 @@
-<p>
-  perfil works!
-</p>
+<section class="main">
+  <div class="container">
+      <div class="table">
+        <div class="form-header">
+            <h2 class="font-Roboto white-bold form-header-title">Datos del usuario</h2>
+        </div>
+      </div>
+
+      <div class="profile">
+          <figure class="profile-back">
+              <img src="http://lorempixel.com/400/200" alt="">
+          </figure>
+          <div class="profile-data">
+            <img class="profile-avatar float" src="http://lorempixel.com/150/150" alt="">
+            <div class="data-user">
+                <h1 class="font-Roboto font-title">{{user.centralName}}</h1>
+                <h5 class="font-Roboto font-description">Responsable: {{user.fullName}}</h5>
+                <h5 class="font-Roboto font-description">Email: {{user.email}}</h5>
+                <h5 class="font-Roboto font-description">Teléfono: {{user.phone}}</h5>
+                <h5 class="font-Roboto font-description">Localidad: {{user.city}}</h5>
+                <h5 class="font-Roboto font-description">Tarifa: {{user.tax}}</h5>
+            </div>
+          </div>
+      </div>
+  </div>
+</section>

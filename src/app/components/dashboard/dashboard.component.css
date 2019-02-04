@@ -1,3 +1,13 @@
 .container{
     display: flex;
+    width: 100%;
+}
+
+.side{
+    max-width: 15%;
+}
+
+.content{
+    max-width: 85vw;
+    width: 85%;
 }

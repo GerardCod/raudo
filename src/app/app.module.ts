@@ -6,6 +6,15 @@ import { MatFormFieldModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatButtonModule,
+  MatRippleModule,
+  MatTooltipModule,
+  MatSelectModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -25,6 +34,7 @@ import { MapComponent } from './components/map/map.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +55,8 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
     MapComponent,
     PerfilComponent,
     InicioComponent,
-    WrapperComponent
+    WrapperComponent,
+    MenuDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +66,14 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
     MatFormFieldModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatTooltipModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

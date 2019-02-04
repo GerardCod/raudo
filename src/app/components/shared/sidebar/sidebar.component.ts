@@ -1,21 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-declare const $: any;
-declare interface RouteInfo {
-    path: string;
-    title: string;
-    icon: string;
-    class: string;
-}
-export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Inicio',  icon: 'dashboard', class: 'font-white' },
-    { path: '/user-profile', title: 'Perfil',  icon:'person', class: 'font-white' },
-    { path: '/table-list', title: 'Conductores',  icon:'commute', class: 'font-white' },
-    { path: '/typography', title: 'Typography',  icon:'library_books', class: 'font-white' },
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: 'font-white' },
-    { path: '/maps', title: 'Maps',  icon:'location_on', class: 'font-white' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: 'font-white' }
-];
+import { Component, OnInit} from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-sidebar',
@@ -23,15 +7,21 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  menuItems: any[];
 
-  constructor() { }
+  items = [
+    {path: 'inicio', title: 'Inicio', icon: 'dashboard'},
+    {path: 'perfil', title: 'Perfil', icon: 'person'},
+    {path: 'conductores', title: 'Conductores', icon: 'commute'},
+    {path: 'mapa', title: 'Mapa', icon: 'location_on'},
+    {path: 'clientes', title: 'Clientes', icon: 'library_books'}
+  ];
+
+  constructor() {
+  }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+
   }
-  isMobileMenu() {
-      return $(window).width() > 991;
-  }
+
 }
 

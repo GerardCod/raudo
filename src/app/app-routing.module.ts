@@ -21,7 +21,7 @@ const loginRoutes: Routes = [
 
 const driversRoutes: Routes = [
   {path: 'agregar', component: AgregarConductorComponent},
-  {path: '', pathMatch: 'full', redirectTo: '/dashboard/inicio'}
+  {path: '', pathMatch: 'full', redirectTo: '/dashboard/conductores'}
 ];
 
 const dashboardRoutes: Routes = [
