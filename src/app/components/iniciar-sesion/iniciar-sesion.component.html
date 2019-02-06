@@ -5,7 +5,7 @@
     <p>
       <mat-form-field appearance="outline" class="full">
         <mat-label>Ingrese su email</mat-label>
-        <input  matInput placeholder="email" formControlName="email"/>
+        <input matInput placeholder="email" formControlName="email"/>
         <mat-error *ngIf="formulario.controls['email'].errors.email">
           Ingresa un email válido
         </mat-error>
@@ -24,6 +24,5 @@
       </mat-form-field>
     </p>
     <button type="submit" class="form-submit font-Roboto white-bold">Ingresar</button>
-
   </form>
 </div>

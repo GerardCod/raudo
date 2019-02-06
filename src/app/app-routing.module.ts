@@ -19,15 +19,11 @@ const loginRoutes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/home'}
 ];
 
-const driversRoutes: Routes = [
-  {path: 'agregar', component: AgregarConductorComponent},
-  {path: '', pathMatch: 'full', redirectTo: '/dashboard/conductores'}
-];
-
 const dashboardRoutes: Routes = [
   {path: 'inicio', component: InicioComponent},
-  {path: 'conductores', component: ConductoresComponent, children: driversRoutes},
+  {path: 'conductores', component: ConductoresComponent},
   {path: 'mapa', component: MapComponent},
+  {path: 'agregar', component: AgregarConductorComponent},
   {path: 'perfil', component: PerfilComponent},
   {path: 'clientes', component: ClientesComponent},
   {path: '', pathMatch: 'full', redirectTo: 'inicio'}

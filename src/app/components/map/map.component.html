@@ -1,20 +1,19 @@
 <section class="main">
   <div class="container">
-    <div class="list">
+    <div class="list mat-elevation-z8">
       <mat-list>
         <mat-list-item *ngFor="let user of users">
           <img matListAvatar [src]="user.img" alt="..." />
-          <h3 matLine (click)="redirectTo(user.lat, user.lng)"> {{ user.user }}</h3>
-          <!-- <p matLine>
-            <span [style.color]="user.color">
-              {{ user.color }}
-            </span>
-          </p> -->
+          <div matLine (click)="redirectTo(user.lat, user.lng)">
+            <h3 [ngClass]="(user.active) ? 'font-active' : ''">{{ user.user }}</h3>
+            <div *ngIf="user.active" class="user-active"></div>
+          </div>
+          
         </mat-list-item>
       </mat-list>
     </div>
 
-    <agm-map class="map" [latitude]="lat" [longitude]="lng">
+    <agm-map class="map mat-elevation-z8" [latitude]="lat" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
   </div>

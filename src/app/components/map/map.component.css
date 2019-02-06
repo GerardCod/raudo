@@ -40,3 +40,13 @@
     height: 100%;
     max-height: 100%;
 }
+
+.user-active{
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+
+.font-active{
+    color: rgba(100, 150, 100, 0.9);
+}

@@ -30,7 +30,8 @@ export class MapComponent implements OnInit {
       color: this.colors[Math.round(Math.random() * (this.colors.length - 1))],
       img: 'http://lorempixel.com/80/80',
       lat: (Math.random() * (150.0000 + (-100.0000))),
-      lng: (Math.random() * (150.0000 + (-100.0000)))
+      lng: (Math.random() * (150.0000 + (-100.0000))),
+      active: (Math.round(Math.random() * 10) % 2 == 0)
     };
   }
 
@@ -47,4 +48,5 @@ interface User {
   img: string;
   lat?: number;
   lng?: number;
+  active?: boolean;
 }

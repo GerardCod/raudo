@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource, MatButton} from '@angular/material';
-import { Platform } from '@angular/cdk/platform';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { Router } from '@angular/router';
 
 export interface TaxiData {
   id: string;
@@ -48,7 +48,7 @@ export class ConductoresComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
+  constructor(private router: Router) {
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
@@ -65,6 +65,10 @@ export class ConductoresComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  navigateToAdd() {
+    this.router.navigate(['agregar']);
   }
 }
 
