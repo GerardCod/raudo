@@ -6,10 +6,10 @@
       <mat-form-field appearance="outline" class="full">
         <mat-label>Ingrese su email</mat-label>
         <input matInput placeholder="email" formControlName="email"/>
-        <mat-error *ngIf="formulario.controls['email'].errors.email">
+        <mat-error *ngIf="formulario.controls['email'].errors?.email">
           Ingresa un email válido
         </mat-error>
-        <mat-error *ngIf="formulario.controls['email'].errors.required">
+        <mat-error *ngIf="formulario.controls['email'].errors?.required">
           El email es <strong>requerido</strong>
         </mat-error>  
       </mat-form-field>
@@ -18,7 +18,7 @@
       <mat-form-field appearance="outline" class="full">
         <mat-label>Ingrese su contraseña</mat-label>
         <input type="password" matInput placeholder="contraseña" formControlName="password" />
-        <mat-error *ngIf="formulario.controls['password'].errors.required">
+        <mat-error *ngIf="formulario.controls['password'].errors?.required">
             Ingresa una contraseña
         </mat-error> 
       </mat-form-field>

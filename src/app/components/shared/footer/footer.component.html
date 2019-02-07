@@ -15,10 +15,10 @@
         <mat-form-field appearance="outline" class="full">
           <mat-label>Ingrese su email</mat-label>
           <input matInput placeholder="email" formControlName="email"/>
-          <mat-error *ngIf="formulario.controls['email'].errors.email">
+          <mat-error *ngIf="formulario.controls['email'].errors?.email">
               Ingresa un email válido
             </mat-error>
-            <mat-error *ngIf="formulario.controls['email'].errors.required">
+            <mat-error *ngIf="formulario.controls['email'].errors?.required">
               El email es <strong>requerido</strong>
             </mat-error> 
         </mat-form-field>
@@ -27,7 +27,7 @@
         <mat-form-field appearance="outline" class="full">
           <mat-label>Ingrese su número telefónico</mat-label>
           <input matInput placeholder="teléfono" formControlName="numero"/>
-          <mat-error *ngIf="formulario.controls['numero'].errors.required">
+          <mat-error *ngIf="formulario.controls['numero'].errors?.required">
               Ingresa un número
           </mat-error> 
         </mat-form-field>

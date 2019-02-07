@@ -38,7 +38,7 @@
           placeholder="Nombre encargado"
           formControlName="nombreEncargado"
         />
-        <mat-error *ngIf="formulario.controls['nombreCentral'].errors.required">
+        <mat-error *ngIf="formulario.controls['nombreCentral'].errors?.required">
           Ingresa un nombre de encargado
         </mat-error>
       </mat-form-field>
@@ -52,7 +52,7 @@
           placeholder="Teléfono"
           formControlName="telefono"
         />
-        <mat-error *ngIf="formulario.controls['telefono'].errors.required">
+        <mat-error *ngIf="formulario.controls['telefono'].errors?.required">
           Ingresa un teléfono
         </mat-error>
       </mat-form-field>
@@ -66,7 +66,7 @@
           placeholder="Localidad"
           formControlName="localidad"
         />
-        <mat-error *ngIf="formulario.controls['localidad'].errors.required">
+        <mat-error *ngIf="formulario.controls['localidad'].errors?.required">
           Ingresa una localidad
         </mat-error>
       </mat-form-field>
@@ -80,10 +80,10 @@
           placeholder="Email"
           formControlName="email"
         />
-        <mat-error *ngIf="formulario.controls['email'].errors.required">
+        <mat-error *ngIf="formulario.controls['email'].errors?.required">
           Ingresa un email
         </mat-error>
-        <mat-error *ngIf="formulario.controls['email'].errors.email">
+        <mat-error *ngIf="formulario.controls['email'].errors?.email">
           Ingresa un email válido
         </mat-error>
       </mat-form-field>
@@ -97,7 +97,7 @@
           placeholder="contraseña"
           formControlName="contrasena1"
         />
-        <mat-error *ngIf="formulario.controls['contrasena1'].errors.required">
+        <mat-error *ngIf="formulario.controls['contrasena1'].errors?.required">
           Ingresa una contraseña
         </mat-error>
       </mat-form-field>
@@ -111,7 +111,7 @@
           placeholder="contraseña"
           formControlName="contrasena2"
         />
-        <mat-error *ngIf="formulario.controls['contrasena2'].errors.required">
+        <mat-error *ngIf="formulario.controls['contrasena2'].errors?.required">
           Ingresa una contraseña
         </mat-error>
       </mat-form-field>
