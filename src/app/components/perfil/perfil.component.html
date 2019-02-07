@@ -12,7 +12,7 @@
             <mat-form-field appearance="outline" class="full">
               <mat-label>Central</mat-label>
               <input matInput placeholder="Central" formControlName="centralName" />
-              <mat-error *ngIf="formulario.controls['centralName'].errors.required">
+              <mat-error *ngIf="formulario.controls['centralName'].errors?.required">
                 El nombre de la central es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
@@ -21,7 +21,7 @@
             <mat-form-field appearance="outline" class="full">
               <mat-label>Encargado</mat-label>
               <input  matInput placeholder="Encargado" formControlName="fullName" />
-              <mat-error *ngIf="formulario.controls['fullName'].errors.required">
+              <mat-error *ngIf="formulario.controls['fullName'].errors?.required">
                 El nombre del encargado es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
@@ -30,10 +30,10 @@
             <mat-form-field appearance="outline" class="full">
               <mat-label>Email</mat-label>
               <input  matInput placeholder="Email" formControlName="email" />
-              <mat-error *ngIf="formulario.controls['email'].errors.email">
+              <mat-error *ngIf="formulario.controls['email'].errors?.email">
                 Ingresa un email válido
               </mat-error>
-              <mat-error *ngIf="formulario.controls['email'].errors.required">
+              <mat-error *ngIf="formulario.controls['email'].errors?.required">
                 El email es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
@@ -42,7 +42,7 @@
             <mat-form-field appearance="outline" class="full">
               <mat-label>Teléfono</mat-label>
               <input  matInput placeholder="Teléfono" formControlName="phone" />
-              <mat-error *ngIf="formulario.controls['phone'].errors.required">
+              <mat-error *ngIf="formulario.controls['phone'].errors?.required">
                 El telefóno es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
@@ -51,7 +51,7 @@
             <mat-form-field appearance="outline" class="full">
               <mat-label>Localidad</mat-label>
               <input matInput placeholder="Localidad" formControlName="city" />
-              <mat-error *ngIf="formulario.controls['city'].errors.required">
+              <mat-error *ngIf="formulario.controls['city'].errors?.required">
                 La localidad es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
@@ -60,7 +60,7 @@
             <mat-form-field appearance="outline" class="full">
               <mat-label>Tarifa</mat-label>
               <input matInput placeholder="Tarifa" formControlName="tax" />
-              <mat-error *ngIf="formulario.controls['tax'].errors.required">
+              <mat-error *ngIf="formulario.controls['tax'].errors?.required">
                 La tarifa es <strong>requerida</strong>
               </mat-error>
             </mat-form-field>
