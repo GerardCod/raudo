@@ -40,8 +40,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-dashboard.component';
-import { PromocionesComponent } from './components/promociones/promociones.component';
-import { AgregarPromocionComponent } from './components/agregar-promocion/agregar-promocion.component';
+
 
 @NgModule({
   declarations: [
@@ -63,9 +62,7 @@ import { AgregarPromocionComponent } from './components/agregar-promocion/agrega
     PerfilComponent,
     InicioComponent,
     WrapperComponent,
-    MenuDashboardComponent,
-    PromocionesComponent,
-    AgregarPromocionComponent
+    MenuDashboardComponent
   ],
   imports: [
     BrowserModule,

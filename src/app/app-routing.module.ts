@@ -28,8 +28,6 @@ const dashboardRoutes: Routes = [
   {path: 'agregar', component: AgregarConductorComponent},
   {path: 'perfil', component: PerfilComponent},
   {path: 'clientes', component: ClientesComponent},
-  {path: 'promociones', component: PromocionesComponent},
-  {path: 'promociones-agregar', component: AgregarPromocionComponent},
   {path: '', pathMatch: 'full', redirectTo: 'inicio'}
 ];
 
