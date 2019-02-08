@@ -40,6 +40,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-dashboard.component';
+import { CostosComponent } from './components/shared/costos/costos.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-
     PerfilComponent,
     InicioComponent,
     WrapperComponent,
-    MenuDashboardComponent
+    MenuDashboardComponent,
+    CostosComponent
   ],
   imports: [
     BrowserModule,
