@@ -1,14 +1,14 @@
 .sidenav{
     height: 100vh;
     width: 15vw;
-    background: linear-gradient(45deg, #1b577b 0%, #341a4a 100%)
+    background: linear-gradient(45deg, #CC4343 0%, #7F2A2A 100%);
 }
 
 .brand{
     width: 15vw;
     padding: 0;
     height: auto;
-    background: white;
+    background: #ffffff;
 }
 
 .logo{
@@ -72,6 +72,7 @@
     transition-duration: 1s;
     transition-delay: 0.1s;
     transition-timing-function: ease-out;
+    text-decoration: none;
     /* border: 1px solid red; */
 }
 
@@ -107,7 +108,7 @@
 }
 
 .active{
-    background: #1b577b;
+    background: #CC4343;
 }
 
 .align-left{

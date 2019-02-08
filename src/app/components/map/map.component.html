@@ -2,14 +2,15 @@
   <div class="container">
     <div class="list mat-elevation-z8">
       <mat-list>
-        <mat-list-item *ngFor="let user of users">
-          <img matListAvatar [src]="user.img" alt="..." />
-          <div matLine (click)="redirectTo(user.lat, user.lng)">
-            <h3 [ngClass]="(user.active) ? 'font-active' : ''">{{ user.user }}</h3>
-            <div *ngIf="user.active" class="user-active"></div>
-          </div>
-          
-        </mat-list-item>
+        <ng-container *ngFor="let user of users">
+          <mat-list-item *ngIf="user.active">
+            <img matListAvatar [src]="user.img" alt="..." />
+            <div matLine (click)="redirectTo(user.lat, user.lng)">
+              <h3 >{{ user.user }}</h3>
+              <div *ngIf="user.active" class="user-active"></div>
+            </div>
+          </mat-list-item>
+        </ng-container>
       </mat-list>
     </div>
 

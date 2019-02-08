@@ -24,14 +24,14 @@
 }
 
 .border-primary{
-    border: 2px solid #1b577b;
+    border: 2px solid #CC4343;
     display: block;
     border-top-right-radius: 2vh;
     border-top-left-radius: 2vh;
 }
 
 .form-input:focus{
-    border: 2px solid #1b577b;
+    border: 2px solid #CC4343;
 }
 
 .form-input::placeholder{
@@ -44,7 +44,7 @@
     height: 10vh;
     position: relative;
     bottom: 0;
-    background: #1b577b;
+    background: #CC4343;
 }
 
 p{
@@ -55,7 +55,7 @@ p{
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(45deg,#1b577b 0%, #341a4a 100%);
+    background: linear-gradient(45deg,#CC4343 0%, #7F2A2A 100%);
     position: relative;
     top: -80px;
     left: 0;

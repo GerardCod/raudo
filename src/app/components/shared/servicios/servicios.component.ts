@@ -16,9 +16,9 @@ export class ServiciosComponent implements OnInit {
      'TaxiMex le brindará gráficas acerca del rendimiento de sus empleados y de sus ganancias, por lo que podrá tomar mejores decisiones' +
       ' en su negocio'
     },
-    {imagen: 'assets/img/conductor.jpg', titulo: 'Viaje seguro',
+    {imagen: 'assets/img/fondo.jpg', titulo: 'Adquiera más clientes',
       descripcion:
-      'Tenga la confianza de viajar con nosotros, ya que los conductores son confiables y seguros'
+      'Gracias a TaxiMex podrá obtener una mayor cantidad de clientes al ofrecer un servicio de mayor calidad'
     }
   ];
 

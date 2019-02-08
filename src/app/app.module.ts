@@ -41,6 +41,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-dashboard.component';
 import { CostosComponent } from './components/shared/costos/costos.component';
+import { PagosComponent } from './components/pagos/pagos.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { CostosComponent } from './components/shared/costos/costos.component';
     InicioComponent,
     WrapperComponent,
     MenuDashboardComponent,
-    CostosComponent
+    CostosComponent,
+    PagosComponent
   ],
   imports: [
     BrowserModule,
