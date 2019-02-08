@@ -12,8 +12,6 @@ import { AgregarConductorComponent } from './components/agregar-conductor/agrega
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
-import { PromocionesComponent } from './components/promociones/promociones.component';
-import { AgregarPromocionComponent } from './components/agregar-promocion/agregar-promocion.component';
 
 const loginRoutes: Routes = [
   {path: 'iniciar', component: IniciarSesionComponent},
@@ -27,7 +25,7 @@ const dashboardRoutes: Routes = [
   {path: 'mapa', component: MapComponent},
   {path: 'agregar', component: AgregarConductorComponent},
   {path: 'perfil', component: PerfilComponent},
-  {path: 'clientes', component: ClientesComponent},
+  {path: 'solicitudes', component: ClientesComponent},
   {path: '', pathMatch: 'full', redirectTo: 'inicio'}
 ];
 

@@ -20,7 +20,7 @@
 }
 
 .background-gradient{
-    background: linear-gradient(45deg, #1b577b 0%, #341a4a 100%);
+    background: linear-gradient(45deg, #CC4343 0%, #7F2A2A 100%);
 }
 
 .background-dark{
@@ -43,7 +43,7 @@
 
 .link-active > a{
     padding: 1.2em 0.4em;
-    color:  #1ea2cd;
+    color:  #FFA0A0;
 }
 
 .background-light{
@@ -51,13 +51,13 @@
 }
 
 .border-primary {
-    border: 1.5px solid #1b577b;
+    border: 1.5px solid #CC4343;
     border-radius: 1vh 1vh 0 0;
     display: block;
 }
 
 .border-primary-normal{
-    border: 1.5px solid #1b577b;
+    border: 1.5px solid #CC4343;
 }
 
 
@@ -90,6 +90,6 @@
 }
 
 .border-primary-normal{
-    border: 2px solid #1b577b;
+    border: 2px solid #CC4343;
     display: block;
 }

@@ -8,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ServiciosComponent implements OnInit {
 
   servicios: Servicio[] = [
-    {imagen: 'assets/img/map.JPG', titulo: 'Seleccione su destino',
+    {imagen: 'assets/img/map.JPG', titulo: 'Conozca la ubicación de sus empleados',
     descripcion:
-    'Gracias al mapa de Taximex usted podrá elegir su destino y seleccionar al coductor que se encuentre más cerca o más le agrade.'},
-    {imagen: 'assets/img/dinero.jpg', titulo: 'Seleccione su forma de pago',
+    'Gracias a la app de administración de TaxiMex usted podrá saber la ubicación exacta en tiempo real de sus empleados.'},
+    {imagen: 'assets/img/charts-dashboard.png', titulo: 'Observe el flujo de su negocio',
      descripcion:
-     'Elija el método de pago que más le agrade además de poder consultar el precio de su viaje antes de hacerlo.'
+     'TaxiMex le brindará gráficas acerca del rendimiento de sus empleados y de sus ganancias, por lo que podrá tomar mejores decisiones' +
+      ' en su negocio'
     },
     {imagen: 'assets/img/conductor.jpg', titulo: 'Viaje seguro',
       descripcion:

@@ -9,12 +9,12 @@
 }
 
 .background-awesome {
-  background: center / cover, linear-gradient(135deg, #1b577b 0%, #341a4a 100%);;
+  background: center / cover, linear-gradient(135deg, #CC4343 0%, #7F2A2A 100%);;
   background-blend-mode: darken;
 }
 
 .font-title {
-  font-size: 4em;
+  font-size: 3em;
 }
 
 .font-text {
