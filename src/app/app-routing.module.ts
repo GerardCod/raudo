@@ -12,6 +12,8 @@ import { AgregarConductorComponent } from './components/agregar-conductor/agrega
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { HelpComponent } from './components/help/help.component';
 
 const loginRoutes: Routes = [
   {path: 'iniciar', component: IniciarSesionComponent},
@@ -32,13 +34,16 @@ const dashboardRoutes: Routes = [
 const landingRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'inicio-sesion', component: LoginComponent, children: loginRoutes},
+  {path: 'help', component: HelpComponent},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
 const routes: Routes = [
   {path: 'landing', component: WrapperComponent, children: landingRoutes},
   {path: 'dashboard', component: DashboardComponent, children: dashboardRoutes},
-  {path: '', pathMatch: 'full', redirectTo: '/landing/home'}
+  {path: 'not-found', component: NotFoundComponent},
+  {path: '', pathMatch: 'full', redirectTo: '/landing/home'},
+  {path: '**', pathMatch: 'full', redirectTo: 'not-found'}
 ];
 
 @NgModule({

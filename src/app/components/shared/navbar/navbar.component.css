@@ -87,14 +87,14 @@
 
 .side-nav{
     width: 60vw;
-    position: absolute;
+    position: fixed;
     z-index: 1;
-    height: 100vh;
+    height: 100%;
     padding-top: 10vh;
-    background: rgba(52, 26, 74, 0.8);
+    background: rgba(204, 67, 67, 0.4);
 }
 
-.side-nav ul li{
+.side-nav{
     list-style: none;
 }
 
@@ -106,7 +106,10 @@
     }
 
     .menu{
-        display: initial;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
         background: transparent;
     }
 

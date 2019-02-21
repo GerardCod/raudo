@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {
   MatButtonModule,
   MatRippleModule,
@@ -16,7 +17,8 @@ import {
   MatListModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatSnackBarModule,
 } from '@angular/material';
 
 import { AgmCoreModule } from '@agm/core';
@@ -42,6 +44,11 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-dashboard.component';
 import { CostosComponent } from './components/shared/costos/costos.component';
 import { PagosComponent } from './components/pagos/pagos.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { DonaComponent } from './components/dona/dona.component';
+import { NavbarDashComponent } from './components/shared/navbar-dash/navbar-dash.component';
+import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { HelpComponent } from './components/help/help.component';
 
 
 @NgModule({
@@ -66,7 +73,12 @@ import { PagosComponent } from './components/pagos/pagos.component';
     WrapperComponent,
     MenuDashboardComponent,
     CostosComponent,
-    PagosComponent
+    PagosComponent,
+    ChartComponent,
+    DonaComponent,
+    NavbarDashComponent,
+    NotFoundComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +99,8 @@ import { PagosComponent } from './components/pagos/pagos.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    ChartsModule,
+    MatSnackBarModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
     })

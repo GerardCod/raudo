@@ -25,7 +25,7 @@ body{
 }
 
 .background-gradient{
-    background: linear-gradient(45deg, #CC4343 0%, #7F2A2A 100%);
+    background: linear-gradient(45deg, rgb(204, 67, 67) 0%, #7F2A2A 100%);
 }
 
 .background-dark{
@@ -48,7 +48,7 @@ body{
 
 .link-active > a{
     padding: 1.2em 0.4em;
-    color:  #FFA0A0;
+    color:  #CC4343;
 }
 
 .background-light{
