@@ -1,4 +1,4 @@
-.container{
+.container-grid{
     display: grid;
     grid-template-columns: 20% 1fr;
 }
@@ -74,7 +74,7 @@
 
 @media screen and (max-width: 768px){
    
-    .container{
+    .container-grid{
         grid-template-columns: 1fr;
         grid-template-rows: 8% 1fr;
         padding: 10% 1em 1em 1em;

@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
   activo: boolean;
   @ViewChild('btnmenu') btnMenu: ElementRef;
 
+
   constructor(private snackBar: MatSnackBar) {
     this.activo = false;
     if (!window.navigator.onLine) {

@@ -21,7 +21,7 @@
 }
 
 .border-primary{
-    border: 2px solid #CC4343;
+    border: 2px solid #CC4343 !important;
     display: block;
     border-top-right-radius: 2vh;
     border-top-left-radius: 2vh;

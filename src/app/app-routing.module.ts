@@ -22,12 +22,12 @@ const loginRoutes: Routes = [
 ];
 
 const dashboardRoutes: Routes = [
-  {path: 'inicio', component: InicioComponent},
-  {path: 'conductores', component: ConductoresComponent},
-  {path: 'mapa', component: MapComponent},
-  {path: 'agregar', component: AgregarConductorComponent},
-  {path: 'perfil', component: PerfilComponent},
-  {path: 'solicitudes', component: ClientesComponent},
+  {path: 'inicio', component: InicioComponent, data: {breadcrumb: 'Inicio'}},
+  {path: 'conductores', component: ConductoresComponent, data: {breadcrumb: 'Conductores'}},
+  {path: 'mapa', component: MapComponent, data: {breadcrumb: 'Mapa'}},
+  {path: 'agregar', component: AgregarConductorComponent, data: {breadcrumb: 'Agregar Conductor'}},
+  {path: 'perfil', component: PerfilComponent, data: {breadcrumb: 'Perfil'}},
+  {path: 'solicitudes', component: ClientesComponent, data: {breadcrumb: 'Solicitudes'}},
   {path: '', pathMatch: 'full', redirectTo: 'inicio'}
 ];
 
@@ -40,7 +40,7 @@ const landingRoutes: Routes = [
 
 const routes: Routes = [
   {path: 'landing', component: WrapperComponent, children: landingRoutes},
-  {path: 'dashboard', component: DashboardComponent, children: dashboardRoutes},
+  {path: 'dashboard', component: DashboardComponent, children: dashboardRoutes, data: {breadcrumb: 'Panel'}},
   {path: 'not-found', component: NotFoundComponent},
   {path: '', pathMatch: 'full', redirectTo: '/landing/home'},
   {path: '**', pathMatch: 'full', redirectTo: 'not-found'}

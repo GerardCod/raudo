@@ -1,7 +1,8 @@
-<div class="container">
-    <app-navbar-dash></app-navbar-dash>
+<div class="container-grid">
+    <app-navbar-dash class="nav mat-elevation-z8"></app-navbar-dash>
     <app-sidebar class="side mat-elevation-z8"></app-sidebar>
     <div class="content">
+        <breadcrumb [allowBootstrap]="true"></breadcrumb>
         <router-outlet></router-outlet>
     </div>
 </div>

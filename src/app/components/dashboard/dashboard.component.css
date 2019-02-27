@@ -1,16 +1,34 @@
-.container{
-    display: flex;
+.container-grid{
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    grid-template-rows: 8.5% 1fr;
+    grid-template-areas:"nav nav"
+                        "side content";
     width: 100%;
+    height: 100%;
+}
+
+.nav{
+    grid-area: nav;
 }
 
 .side{
-    max-width: 15%;
+    grid-area: side;
 }
 
 .content{
     max-width: 85vw;
+    max-height: 100%;
+    height: 100%;
+    grid-area: content;
     height: auto;
-    width: 85%;
+    width: 100%;
     overflow: scroll;
     background: #eeeeee;
+}
+
+.breadcrumb{
+    display: flex;
+    background: #eeeeee;
+    justify-content: flex-end;
 }

@@ -23,8 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
-              // "node_modules/materialize-css/dist/css/materialize.min.css"
+              "src/styles.css",
+              "node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.min.js",
@@ -86,8 +86,7 @@
             "styles": [
               "src/styles.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-              "src/assets/scss/material-dashboard.scss",
-              "src/assets/css/demo.css"
+              "node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",

@@ -19,8 +19,9 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatSnackBarModule,
+  MatBadgeModule
 } from '@angular/material';
-
+import { BreadcrumbsModule } from 'ng6-breadcrumbs';
 import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
@@ -41,7 +42,6 @@ import { MapComponent } from './components/map/map.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
-import { MenuDashboardComponent } from './components/shared/menu-dashboard/menu-dashboard.component';
 import { CostosComponent } from './components/shared/costos/costos.component';
 import { PagosComponent } from './components/pagos/pagos.component';
 import { ChartComponent } from './components/chart/chart.component';
@@ -49,6 +49,7 @@ import { DonaComponent } from './components/dona/dona.component';
 import { NavbarDashComponent } from './components/shared/navbar-dash/navbar-dash.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { HelpComponent } from './components/help/help.component';
+import { NoficationsComponent } from './components/nofications/nofications.component';
 
 
 @NgModule({
@@ -71,14 +72,14 @@ import { HelpComponent } from './components/help/help.component';
     PerfilComponent,
     InicioComponent,
     WrapperComponent,
-    MenuDashboardComponent,
     CostosComponent,
     PagosComponent,
     ChartComponent,
     DonaComponent,
     NavbarDashComponent,
     NotFoundComponent,
-    HelpComponent
+    HelpComponent,
+    NoficationsComponent
   ],
   imports: [
     BrowserModule,
@@ -101,6 +102,8 @@ import { HelpComponent } from './components/help/help.component';
     MatSortModule,
     ChartsModule,
     MatSnackBarModule,
+    BreadcrumbsModule,
+    MatBadgeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
     })
