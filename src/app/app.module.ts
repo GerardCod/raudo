@@ -43,7 +43,6 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { CostosComponent } from './components/shared/costos/costos.component';
-import { PagosComponent } from './components/pagos/pagos.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { DonaComponent } from './components/dona/dona.component';
 import { NavbarDashComponent } from './components/shared/navbar-dash/navbar-dash.component';
@@ -73,7 +72,6 @@ import { NoficationsComponent } from './components/nofications/nofications.compo
     InicioComponent,
     WrapperComponent,
     CostosComponent,
-    PagosComponent,
     ChartComponent,
     DonaComponent,
     NavbarDashComponent,
