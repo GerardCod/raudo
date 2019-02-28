@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatRippleModule,
@@ -102,6 +103,7 @@ import { NoficationsComponent } from './components/nofications/nofications.compo
     MatSnackBarModule,
     BreadcrumbsModule,
     MatBadgeModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
     })
