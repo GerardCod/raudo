@@ -10,7 +10,7 @@
 
   <article class="form-contact">
     <h2 class="font-Roboto font-header white-bold">Contáctanos</h2>
-    <form [formGroup]="formulario" action="">
+    <form [formGroup]="formulario" action="" (ngSubmit)="sendEmail()">
       <p>
         <mat-form-field appearance="outline" class="full">
           <mat-label>Ingrese su email</mat-label>

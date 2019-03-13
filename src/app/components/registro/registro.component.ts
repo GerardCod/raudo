@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Central } from '../../models/central';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -7,14 +10,36 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+  [x: string]: any;
 
   formulario: FormGroup;
 
-  constructor() {
+  constructor(private auth: AuthService, private router: Router) {
     this.iniciarFormulario();
   }
 
   ngOnInit() {
+  }
+
+  singUp(){
+    const central: Central = new Central(
+      this.formulario.controls['nombreCentral'].value,
+      this.formulario.controls['tarifa'].value,
+      {
+        name: this.formulario.controls['nombreEncargado'].value,
+        telephone: this.formulario.controls['telefono'].value
+      },
+      this.formulario.controls['localidad'].value,
+      this.formulario.controls['contrasena1'].value,
+      this.formulario.controls['email'].value
+    );
+
+    this.auth.centralSignUp(central).subscribe(
+      response => console.log(response),
+      error => console.log(error)
+    );
+
+    this.router.navigate(['/landing','inici0-sesion','iniciar']);
   }
 
   iniciarFormulario(){
@@ -26,7 +51,27 @@ export class RegistroComponent implements OnInit {
       'localidad': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'contrasena1': new FormControl(null, Validators.required),
-      'contrasena2': new FormControl(null, Validators.required)
+      'contrasena2': new FormControl(null)
     });
+
+    this.formulario.controls['contrasena2'].setValidators([Validators.required, this.noIgual.bind(this.formulario)]);
   }
+
+  noIgual(control: FormControl): {[s: string]: boolean} {  
+
+    let formulario = this;
+    if(control.value !== formulario.controls['contrasena1'].value){
+      return {
+        noiguales: true
+      }
+    }
+
+    return null;
+  }
+
+}
+
+export interface Attendant {
+  name: any;
+  telephone: any;
 }

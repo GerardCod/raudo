@@ -69,6 +69,7 @@ p:nth-child(n){
     color: #fff;
     font-size: 1em;
     font-family: 'Roboto';
+    cursor: pointer;
 }
 
 .full{

@@ -23,4 +23,7 @@ export class FooterComponent implements OnInit {
     });
   }
 
+  sendEmail(){
+    console.log('Enviando email f');
+  }
 }

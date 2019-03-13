@@ -14,6 +14,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { HelpComponent } from './components/help/help.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const loginRoutes: Routes = [
   {path: 'iniciar', component: IniciarSesionComponent},
@@ -40,7 +41,7 @@ const landingRoutes: Routes = [
 
 const routes: Routes = [
   {path: 'landing', component: WrapperComponent, children: landingRoutes},
-  {path: 'dashboard', component: DashboardComponent, children: dashboardRoutes, data: {breadcrumb: 'Panel'}},
+  {path: 'dashboard', component: DashboardComponent, children: dashboardRoutes, data: {breadcrumb: 'Panel'}, canActivate: [AuthGuard]},
   {path: 'not-found', component: NotFoundComponent},
   {path: '', pathMatch: 'full', redirectTo: '/landing/home'},
   {path: '**', pathMatch: 'full', redirectTo: 'not-found'}

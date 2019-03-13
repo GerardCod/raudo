@@ -1,5 +1,5 @@
 <div class="form-container fade-in">
-  <form class="form border-primary" [formGroup]="formulario">
+  <form class="form border-primary" [formGroup]="formulario" (ngSubmit)="singUp()">
     <div class="image-round center"><i class="fas fa-book"></i></div>
     <p>
       <mat-form-field appearance="outline" class="full">
@@ -10,8 +10,8 @@
           placeholder="Tarifa"
           formControlName="tarifa"
         />
-        <mat-error *ngIf="formulario.controls['tarifa'].errors.required">
-          Ingresa una tarifa
+        <mat-error *ngIf="formulario.controls['tarifa'].errors?.required">
+          Ingresa una tarifa.
         </mat-error>
       </mat-form-field>
     </p>
@@ -24,8 +24,8 @@
           placeholder="Central"
           formControlName="nombreCentral"
         />
-        <mat-error *ngIf="formulario.controls['nombreCentral'].errors.required">
-          Ingresa un nombre 
+        <mat-error *ngIf="formulario.controls['nombreCentral'].errors?.required">
+          Ingresa un nombre. 
         </mat-error>
       </mat-form-field>
     </p>
@@ -39,7 +39,7 @@
           formControlName="nombreEncargado"
         />
         <mat-error *ngIf="formulario.controls['nombreCentral'].errors?.required">
-          Ingresa un nombre de encargado
+          Ingresa un nombre de encargado.
         </mat-error>
       </mat-form-field>
     </p>
@@ -53,7 +53,7 @@
           formControlName="telefono"
         />
         <mat-error *ngIf="formulario.controls['telefono'].errors?.required">
-          Ingresa un teléfono
+          Ingresa un teléfono.
         </mat-error>
       </mat-form-field>
     </p>
@@ -67,7 +67,7 @@
           formControlName="localidad"
         />
         <mat-error *ngIf="formulario.controls['localidad'].errors?.required">
-          Ingresa una localidad
+          Ingresa una localidad.
         </mat-error>
       </mat-form-field>
     </p>
@@ -81,10 +81,10 @@
           formControlName="email"
         />
         <mat-error *ngIf="formulario.controls['email'].errors?.required">
-          Ingresa un email
+          Ingresa un email.
         </mat-error>
         <mat-error *ngIf="formulario.controls['email'].errors?.email">
-          Ingresa un email válido
+          Ingresa un email válido.
         </mat-error>
       </mat-form-field>
     </p>
@@ -92,13 +92,13 @@
       <mat-form-field appearance="outline" class="full">
         <mat-label>Contraseña</mat-label>
         <input
-          type="text"
+          type="password"
           matInput
           placeholder="contraseña"
           formControlName="contrasena1"
         />
         <mat-error *ngIf="formulario.controls['contrasena1'].errors?.required">
-          Ingresa una contraseña
+          Ingresa una contraseña.
         </mat-error>
       </mat-form-field>
     </p>
@@ -112,13 +112,16 @@
           formControlName="contrasena2"
         />
         <mat-error *ngIf="formulario.controls['contrasena2'].errors?.required">
-          Ingresa una contraseña
+          Ingresa una contraseña.
+        </mat-error>
+        <mat-error *ngIf="formulario.controls['contrasena2'].errors?.noIgual">
+          Las contraseñas no son iguales.
         </mat-error>
       </mat-form-field>
     </p>
     <p class="font-Roboto dark-bold">Cuidaremos tu información celosamente.</p>
     <button type="submit" class="form-submit font-Roboto white-bold">
-      Ingresar
+      Registrar
     </button>
   </form>
 </div>

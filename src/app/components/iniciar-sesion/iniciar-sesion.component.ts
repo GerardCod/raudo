@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class IniciarSesionComponent implements OnInit {
   formulario: FormGroup;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
     this.iniciarFormulario();
   }
 
@@ -28,8 +29,26 @@ export class IniciarSesionComponent implements OnInit {
     if (this.formulario.invalid) {
       console.log('invalido');
     } else {
-      this.router.navigate(['dashboard']);
+
+      const user: User = {
+        username: this.formulario.controls['email'].value,
+        password: this.formulario.controls['password'].value
+      };
+
+      this.authService.centralSingIn(user)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['dashboard']);
+        },
+        error => console.log(error)
+      );
     }
   }
 
+}
+
+export interface User {
+  username: any;
+  password: any;
 }

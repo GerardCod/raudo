@@ -56,38 +56,6 @@
           </p>
           <p class="input">
             <mat-form-field appearance="outline" class="full">
-              <mat-label>Usuario del chofer</mat-label>
-              <input
-                type="text"
-                matInput
-                placeholder="usuario"
-                formControlName="user"
-              />
-              <mat-error
-                *ngIf="form.controls['user'].errors?.required"
-              >
-                Ingresa un usuario
-              </mat-error>
-            </mat-form-field>
-          </p>
-          <p class="input">
-            <mat-form-field appearance="outline" class="full">
-              <mat-label>No. de unidad</mat-label>
-              <input
-                type="text"
-                matInput
-                placeholder="unidad"
-                formControlName="unity"
-              />
-              <mat-error
-                *ngIf="form.controls['unity'].errors?.required"
-              >
-                Ingresa un número de unidad
-              </mat-error>
-            </mat-form-field>
-          </p>
-          <p class="input">
-            <mat-form-field appearance="outline" class="full">
               <mat-label>Placas de la unidad</mat-label>
               <input
                 type="text"

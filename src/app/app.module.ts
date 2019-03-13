@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {
   MatButtonModule,
   MatRippleModule,
@@ -51,6 +51,8 @@ import { NotFoundComponent } from './components/shared/not-found/not-found.compo
 import { HelpComponent } from './components/help/help.component';
 import { NoficationsComponent } from './components/nofications/nofications.component';
 
+import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -108,7 +110,10 @@ import { NoficationsComponent } from './components/nofications/nofications.compo
       apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
     })
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent],
   exports: [
     MatIconModule,
