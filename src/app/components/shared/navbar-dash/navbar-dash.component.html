@@ -62,15 +62,15 @@
         </button>
         <div>
             <mat-icon (click)="view = !view" class="bell" matBadge="{{list.length}}" matBadgeColor="warn">notifications</mat-icon>
-            <div *ngIf="view" class="list-group notifications-list">
+            <div *ngIf="view" class="list-group notifications-list mat-elevation-z8">
                 <app-nofications *ngFor="let item of list" [request]="item"></app-nofications>
             </div>
         </div>
         <div class="user">
-            <a [routerLink]="['perfil']">Gerardo</a>
+            <a [routerLink]="['perfil']">{{username}}</a>
             <img class="avatar" src="http://lorempixel.com/40/40/" alt="">
         </div>
-        <button class="log-out" mat-icon-button (click)="logOut()">
+        <button class="log-out" mat-button (click)="logOut()">
             <p>Cerrar sesión</p>
         </button>
     </div>

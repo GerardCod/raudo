@@ -36,5 +36,6 @@ export class AuthService {
 
   public centralSingOut() {
     localStorage.removeItem('user');
+    location.reload(true);
   }
 }

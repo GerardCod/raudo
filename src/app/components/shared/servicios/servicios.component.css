@@ -7,11 +7,16 @@
     justify-content: space-around;
 }
 
+.display--flex{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-between;
+}
+
 .card{
     width: 25vw;
-    height: 70vh;
+    height: 55vh;
     border-radius: 2vw;
-    display: block;
     border: none;
     transition-property: box-shadow;
     transition-duration: 0.5s;
@@ -21,7 +26,7 @@
 
 .card-image-container{
     width: 100%;
-    height: 30%;
+    height: 40%;
     border-radius: 2vw;
     margin-bottom: 4em;
 }
@@ -29,13 +34,13 @@
 .card-image{
     width: 100%;
     object-fit: cover;
-    max-height: 30vh;
+    height: 100%;
     border-radius: 2vw;
 }
 
 .card-caption{
     width: 100%;
-    height: 50%;
+    height: 40%;
     padding: 1vh 2vw;
 }
 

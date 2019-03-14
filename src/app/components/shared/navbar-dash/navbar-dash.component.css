@@ -25,7 +25,6 @@
     z-index: 4;
     border-radius: 1em;
     right: 10%;
-    box-shadow: 0.05em 0.05em 0.05em 0.05em rgb(130,130,130);
     background: #fff;
 }
 
@@ -71,6 +70,7 @@
 .log-out{
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 20%;
     height: 100%;
     padding: 1em 0;

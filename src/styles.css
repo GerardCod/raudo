@@ -46,6 +46,11 @@ body{
     font-weight: 1.5em;
 }
 
+.red-bold{
+    color: rgb(204, 67, 67);
+    font-weight: 1.5em;
+}
+
 .link-active > a{
     padding: 1.2em 0.4em;
     color:  #CC4343;

@@ -12,13 +12,15 @@ export class PerfilComponent implements OnInit {
   formulario: FormGroup;
 
   constructor() {
+    const userLoged = JSON.parse(localStorage.getItem('user')).usuario;
+    console.log(userLoged);
     this.user = {
-      tax: 20.50,
-      centralName: 'RadioTaxi',
-      fullName: 'Pancho López',
-      phone: '238 180 4026',
-      city: 'Tehuacán',
-      email: 'pancho.lopez@gmail.com'
+      tax: userLoged.rate,
+      centralName: userLoged.name,
+      fullName: userLoged.attendant.name,
+      phone: userLoged.attendant.telephone,
+      city: userLoged.town,
+      email: userLoged.email
     };
     this.iniciarFormulario();
   }
@@ -38,7 +40,7 @@ export class PerfilComponent implements OnInit {
     console.log(this.formulario.controls['centralName']);
   }
 
-  guardarCambios(newUser) {
+  guardarCambios() {
   }
 }
 

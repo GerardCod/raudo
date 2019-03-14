@@ -1,12 +1,12 @@
-<header class="header background-gradient">
+<header class="header header--background">
   <nav class="nav-menu">
     <button (click)="mostrarOcultar()" #btnmenu class="menu"><i class="fas fa-bars"></i></button>
     <ul class="nav-list">
       <li class="nav-list-logo font-Roboto ">
-        <a class="white-bold" [routerLink]="['home']"
+        <a class="red-bold" [routerLink]="['home']"
           ><img
             class="logo-brand"
-            src="../../../../assets/img/icon.png"
+            src="../../../../assets/img/nuevo_logo.png"
             alt="Icono Taximex"
           />
           <p class="brand-message">Taximex</p></a
@@ -14,15 +14,15 @@
       </li>
       <div class="nav-list-items-important">
         <li routerLinkActive="link-active" class="nav-list-item font-Roboto">
-          <a class="white-bold" [routerLink]="['home']">Inicio</a>
+          <a class="dark-bold" [routerLink]="['home']">Inicio</a>
         </li>
         <li routerLinkActive="link-active" class="nav-list-item font-Roboto">
-          <a class="white-bold" [routerLink]="['inicio-sesion','iniciar']">
+          <a class="dark-bold" [routerLink]="['inicio-sesion','iniciar']">
             Iniciar sesión
           </a>
         </li>
         <li routerLinkActive="link-active" class="nav-list-item font-Roboto">
-          <a class="white-bold" [routerLink]="['help']">
+          <a class="dark-bold" [routerLink]="['help']">
             Ayuda
           </a>
         </li>

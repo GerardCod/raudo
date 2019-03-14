@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar-dash',
@@ -17,13 +18,18 @@ export class NavbarDashComponent implements OnInit {
   ];
 
   view = false;
+  username: string;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private authService: AuthService) { 
+    const {usuario: {attendant: {name}}} = JSON.parse(localStorage.getItem('user'));
+    this.username = name;
+    this.username = this.username.split(' ')[0];
+  }
 
   ngOnInit() {
   }
 
   logOut(){
-    this.router.navigate(['/landing','home']);
+    this.authService.centralSingOut();
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { Router } from '@angular/router';
+import { DriversService } from 'src/app/services/drivers.service';
 
 export interface TaxiData {
   id: string;
@@ -48,10 +49,14 @@ export class ConductoresComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private driverService: DriversService) {
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
+    this.driverService.getDrivers().subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 
   ngOnInit() {

@@ -100,6 +100,9 @@
         <mat-error *ngIf="formulario.controls['contrasena1'].errors?.required">
           Ingresa una contraseña.
         </mat-error>
+        <mat-error *ngIf="formulario.controls['contrasena1'].errors?.longitud">
+          La contraseña debe tener mínimo 8 caracteres.
+        </mat-error>
       </mat-form-field>
     </p>
     <p>

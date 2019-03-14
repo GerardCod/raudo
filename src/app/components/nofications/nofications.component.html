@@ -1,7 +1,10 @@
-
-<a class="list-group-item">
-    <i class="material-icons">person_pin</i>
-    <p>Origen: {{request.from}}</p>
-    <p>Destino: {{request.to}}</p>
+<a class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Usuario pidio un taxi</h5>
+        <small>3 days ago</small>
+    </div>
+    <div class="wrap">
+        <p class="mb-1">Origen: {{request.from}}</p>
+        <small>Destino: {{request.to}}</small>
+    </div>
 </a>
-

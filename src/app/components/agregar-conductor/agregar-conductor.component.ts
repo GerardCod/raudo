@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormControlDirective } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DriversService } from 'src/app/services/drivers.service';
 
@@ -26,10 +26,10 @@ export class AgregarConductorComponent implements OnInit {
       'phone': new FormControl(null, Validators.required),
       'plate': new FormControl(null, Validators.required),
       'model': new FormControl(null, Validators.required),
-      'year': new FormControl(null, Validators.required)
+      'year': new FormControl(null, Validators.required),
+      'user': new FormControl(null, Validators.required),
+      'password': new FormControl(null, Validators.required)
     });
-
-    console.log(this.form.controls);
   }
 
   saveDriver() {
@@ -37,7 +37,9 @@ export class AgregarConductorComponent implements OnInit {
       driver: {
         name: this.form.controls['name'].value,
         last_name: this.form.controls['lastName'].value,
-        telephone: this.form.controls['phone'].value
+        telephone: this.form.controls['phone'].value,
+        username: this.form.controls['user'].value,
+        password: this.form.controls['password'].value
       },
       unit: {
         plates: this.form.controls['plate'].value,
@@ -45,7 +47,11 @@ export class AgregarConductorComponent implements OnInit {
         year: this.form.controls['year'].value
       }
     };
-    
+
+    const year = '' + driver.unit.year + '';
+// tslint:disable-next-line: radix
+    driver.unit.year =  Number.parseInt(year.slice(0, 5));
+
     this.service.newDriver(driver).subscribe(
       data => {
         console.log(data);

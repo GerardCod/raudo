@@ -38,7 +38,6 @@ export class IniciarSesionComponent implements OnInit {
       this.authService.centralSingIn(user)
       .subscribe(
         data => {
-          console.log(data);
           this.router.navigate(['dashboard']);
         },
         error => console.log(error)

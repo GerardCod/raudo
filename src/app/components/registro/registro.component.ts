@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Central } from '../../models/central';
 import { Router } from '@angular/router';
@@ -39,7 +39,7 @@ export class RegistroComponent implements OnInit {
       error => console.log(error)
     );
 
-    this.router.navigate(['/landing','inici0-sesion','iniciar']);
+    this.router.navigate(['/landing','inicio-sesion','iniciar']);
   }
 
   iniciarFormulario(){
@@ -50,14 +50,15 @@ export class RegistroComponent implements OnInit {
       'telefono': new FormControl(null, Validators.required),
       'localidad': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'contrasena1': new FormControl(null, Validators.required),
+      'contrasena1': new FormControl(null),
       'contrasena2': new FormControl(null)
     });
 
+    this.formulario.controls['contrasena1'].setValidators([Validators.required, this.longitud]);
     this.formulario.controls['contrasena2'].setValidators([Validators.required, this.noIgual.bind(this.formulario)]);
   }
 
-  noIgual(control: FormControl): {[s: string]: boolean} {  
+  noIgual(control: FormControl): {[s: string]: boolean} {
 
     let formulario = this;
     if(control.value !== formulario.controls['contrasena1'].value){
@@ -66,6 +67,16 @@ export class RegistroComponent implements OnInit {
       }
     }
 
+    return null;
+  }
+
+  longitud (control: AbstractControl): {[s: string]: boolean} {
+    const value = '' + control.value + '';
+    if (value.length < 8 ) {
+      return {
+        min: true
+      }
+    }
     return null;
   }
 
