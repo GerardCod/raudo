@@ -35,3 +35,11 @@
     justify-content: center;
 }
 
+.dialog{
+    position: relative;
+    left: 400;
+}
+
+mat-form-field{
+    width: 100%;
+}

@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Actualizar información</h1>
+<div mat-dialog-content>
+    <p>Ingresa los datos del conductor</p>
+  
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput required placeholder="Nombre" [(ngModel)]="user.driver.name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Apellidos</mat-label>
+                <input matInput required placeholder="Apellidos" [(ngModel)]="user.driver.last_name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <input matInput required type="tel" placeholder="Telefono" [(ngModel)]="user.driver.telephone">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario</mat-label>
+                <input matInput required type="email" placeholder="Usuario" [(ngModel)]="user.driver.username">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Placas de la unidad</mat-label>
+                <input matInput required placeholder="Placas" [(ngModel)]="user.unit.plates">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Modelo de la unidad</mat-label>
+                <input matInput required placeholder="Modelo" [(ngModel)]="user.unit.model">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Año del modelo</mat-label>
+                <input matInput required placeholder="Año" [(ngModel)]="user.unit.year">
+            </mat-form-field>
+        </p> 
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="updateDriver()" [mat-dialog-close]="data.animal" cdkFocusInitial>Actualizar</button>
+</div>

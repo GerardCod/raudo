@@ -9,26 +9,35 @@ import { map } from 'rxjs/operators';
 export class DriversService {
 
   token: any;
+  options: any;
+
   constructor(private httpClient: HttpClient) {
     this.token = JSON.parse(localStorage.getItem('user')).token;
+    this.options = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
   }
 
   newDriver (driver: any) {
-    return this.httpClient.post(`${APÏ_URL}cabs`, driver, {headers: {'Authorization': 'Bearer ' + this.token}});
+    return this.httpClient.post(`${APÏ_URL}cabs`, driver, this.options);
   }
 
   getDrivers () {
-    return this.httpClient.get(`${APÏ_URL}cabs?limit=10&page=0`, {headers: {'Authorization': 'Bearer ' + this.token}})
+    return this.httpClient.get(`${APÏ_URL}cabs?limit=10&page=0`, this.options)
     .pipe(map(
       (data:any) => {
         return data.cabs;
       }
     ));
   }
-  // deleteDriver(id: any){
-  //   const headers = new HttpHeaders({Authorization: ACCESS_TOKEN});
-  //   const params = new HttpParams(new HttpOptions());
-  //   return this.httpClient.delete(`${APÏ_URL}cabs`, {headers}, params);
-  // }
 
+  deleteDriver(id: any) {
+    return this.httpClient.delete(`${APÏ_URL}cabs/${id}`, this.options);
+  }
+
+  updateDriver(id: any, driver: any) {
+    return this.httpClient.patch(`${APÏ_URL}cabs/${id}`, driver, this.options);
+  }
 }

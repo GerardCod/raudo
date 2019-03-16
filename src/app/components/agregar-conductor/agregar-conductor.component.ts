@@ -27,7 +27,7 @@ export class AgregarConductorComponent implements OnInit {
       'plate': new FormControl(null, Validators.required),
       'model': new FormControl(null, Validators.required),
       'year': new FormControl(null, Validators.required),
-      'user': new FormControl(null, Validators.required),
+      'user': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, Validators.required)
     });
   }
