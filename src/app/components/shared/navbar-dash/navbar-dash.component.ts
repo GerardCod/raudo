@@ -21,7 +21,7 @@ export class NavbarDashComponent implements OnInit {
   username: string;
 
   constructor(private router:Router, private authService: AuthService) { 
-    const {usuario: {attendant: {name}}} = JSON.parse(localStorage.getItem('user'));
+    const {attendant: {name}} = JSON.parse(localStorage.getItem('user'));
     this.username = name;
     this.username = this.username.split(' ')[0];
   }

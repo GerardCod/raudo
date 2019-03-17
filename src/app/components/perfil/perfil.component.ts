@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-perfil',
@@ -9,11 +8,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class PerfilComponent implements OnInit {
 
   user: User;
-  formulario: FormGroup;
+  data: any;
 
   constructor() {
-    const userLoged = JSON.parse(localStorage.getItem('user')).usuario;
-    console.log(userLoged);
+    const userLoged = JSON.parse(localStorage.getItem('user'));
     this.user = {
       tax: userLoged.rate,
       centralName: userLoged.name,
@@ -22,26 +20,11 @@ export class PerfilComponent implements OnInit {
       city: userLoged.town,
       email: userLoged.email
     };
-    this.iniciarFormulario();
   }
 
   ngOnInit() {
   }
 
-  iniciarFormulario() {
-    this.formulario = new FormGroup({
-      'centralName': new FormControl(null, Validators.required),
-      'fullName': new FormControl(null, Validators.required),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'phone': new FormControl(null, Validators.required),
-      'tax': new FormControl(null, Validators.required),
-      'city': new FormControl(null, Validators.required)
-    });
-    console.log(this.formulario.controls['centralName']);
-  }
-
-  guardarCambios() {
-  }
 }
 
 interface User {

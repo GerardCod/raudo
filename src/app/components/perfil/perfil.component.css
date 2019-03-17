@@ -11,7 +11,7 @@
 
 .container{
     display: grid;
-    grid-template: repeat(3, minmax(200px, 1fr)) / repeat(auto-fill, minmax(200px, 1fr));
+    grid-template: 1fr 1fr;
     grid-gap: 1em;
 }
 

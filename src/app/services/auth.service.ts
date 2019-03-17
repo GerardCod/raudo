@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { APÏ_URL } from '../global/config';
 import { map } from 'rxjs/operators';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +26,8 @@ export class AuthService {
     .pipe(map(
       (data: any) => {
         if (data) {
-          localStorage.setItem('user', JSON.stringify(data));
+          localStorage.setItem('token', JSON.stringify(data.token));
+          localStorage.setItem('user', JSON.stringify(data.usuario));
         }
         return user;
       }
@@ -35,7 +35,8 @@ export class AuthService {
   }
 
   public centralSingOut() {
-    localStorage.removeItem('user');
+    localStorage.clear();
+// tslint:disable-next-line: deprecation
     location.reload(true);
   }
 }

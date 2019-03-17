@@ -21,9 +21,10 @@ import {
   MatSortModule,
   MatSnackBarModule,
   MatBadgeModule,
-  MatDialogModule
+  MatDialogModule,
+  MatTabsModule,
+  MatGridListModule
 } from '@angular/material';
-import { BreadcrumbsModule } from 'ng6-breadcrumbs';
 import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -55,6 +56,9 @@ import { FormUpdateComponent } from './components/conductores/form-update.compon
 import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { CountComponent } from './components/count/count.component';
+import { UpdateCountComponent } from './components/update-count/update-count.component';
+import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +88,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     NoficationsComponent,
     ConductoresComponent,
     FormDeleteComponent,
-    FormUpdateComponent
+    FormUpdateComponent,
+    CountComponent,
+    UpdateCountComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     BrowserModule,
@@ -107,10 +114,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     MatSortModule,
     ChartsModule,
     MatSnackBarModule,
-    BreadcrumbsModule,
     MatBadgeModule,
     HttpClientModule,
     MatDialogModule,
+    MatTabsModule,
+    MatGridListModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
     })
@@ -121,7 +129,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent, ConductoresComponent],
   exports: [

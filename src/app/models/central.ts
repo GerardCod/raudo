@@ -1,4 +1,4 @@
-export class Central{
+export class Central {
 
     constructor(public name: any, 
         public rate: any,

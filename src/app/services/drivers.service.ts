@@ -40,4 +40,9 @@ export class DriversService {
   updateDriver(id: any, driver: any) {
     return this.httpClient.patch(`${APÏ_URL}cabs/${id}`, driver, this.options);
   }
+
+  getDriversAvailables(){
+    return this.httpClient.get(`${APÏ_URL}station/availables`, this.options);
+  }
+
 }

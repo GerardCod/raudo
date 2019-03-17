@@ -1,100 +1,18 @@
 <section class="main">
   <div class="container">
-    <div class="table mat-elevation-z8">
-      <div class="form-header">
-        <h2 class="font-Roboto white-bold form-header-title">
-          Datos del usuario
-        </h2>
-      </div>
-      <div *ngIf="user" class="form-container">
-        <form action="" class="form" [formGroup]="formulario">
-          <p>
-            <mat-form-field appearance="outline" class="full">
-              <mat-label>Central</mat-label>
-              <input matInput placeholder="Central" formControlName="centralName" />
-              <mat-error *ngIf="formulario.controls['centralName'].errors?.required">
-                El nombre de la central es <strong>requerido</strong>
-              </mat-error>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="outline" class="full">
-              <mat-label>Encargado</mat-label>
-              <input  matInput placeholder="Encargado" formControlName="fullName" />
-              <mat-error *ngIf="formulario.controls['fullName'].errors?.required">
-                El nombre del encargado es <strong>requerido</strong>
-              </mat-error>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="outline" class="full">
-              <mat-label>Email</mat-label>
-              <input  matInput placeholder="Email" formControlName="email" />
-              <mat-error *ngIf="formulario.controls['email'].errors?.email">
-                Ingresa un email válido
-              </mat-error>
-              <mat-error *ngIf="formulario.controls['email'].errors?.required">
-                El email es <strong>requerido</strong>
-              </mat-error>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="outline" class="full">
-              <mat-label>Teléfono</mat-label>
-              <input  matInput placeholder="Teléfono" formControlName="phone" />
-              <mat-error *ngIf="formulario.controls['phone'].errors?.required">
-                El telefóno es <strong>requerido</strong>
-              </mat-error>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="outline" class="full">
-              <mat-label>Localidad</mat-label>
-              <input matInput placeholder="Localidad" formControlName="city" />
-              <mat-error *ngIf="formulario.controls['city'].errors?.required">
-                La localidad es <strong>requerido</strong>
-              </mat-error>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="outline" class="full">
-              <mat-label>Tarifa</mat-label>
-              <input matInput placeholder="Tarifa" formControlName="tax" />
-              <mat-error *ngIf="formulario.controls['tax'].errors?.required">
-                La tarifa es <strong>requerida</strong>
-              </mat-error>
-            </mat-form-field>
-          </p>
-          <button mat-raised-button type="submit" color="warn" class="button-lg">Guardar cambios</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="profile mat-elevation-z9">
-      <figure class="profile-back">
-        <img src="http://lorempixel.com/400/200" alt="" />
-      </figure>
-      <div class="profile-data">
-        <img
-          class="profile-avatar float"
-          src="http://lorempixel.com/150/150"
-          alt=""
-        />
-        <div class="data-user">
-          <h1 class="font-Roboto font-title">{{ user.centralName }}</h1>
-          <h5 class="font-Roboto font-description">
-            Responsable: {{ user.fullName }}
-          </h5>
-          <h5 class="font-Roboto font-description">Email: {{ user.email }}</h5>
-          <h5 class="font-Roboto font-description">
-            Teléfono: {{ user.phone }}
-          </h5>
-          <h5 class="font-Roboto font-description">
-            Localidad: {{ user.city }}
-          </h5>
-          <h5 class="font-Roboto font-description">Tarifa: {{ user.tax }}</h5>
-        </div>
-      </div>
-    </div>
+    <mat-tab-group>
+        <mat-tab label="Cuenta"> 
+          <app-count [currentUser]="user"></app-count>
+        </mat-tab>
+        <mat-tab label="Actualizar datos"> 
+          <app-update-count></app-update-count>
+        </mat-tab>
+        <mat-tab label="Cambiar contraseña"> 
+          Content 3 
+        </mat-tab>
+        <mat-tab label="Cambiar imagen de perfil"> 
+          Content 3 
+        </mat-tab>
+    </mat-tab-group>
   </div>
 </section>

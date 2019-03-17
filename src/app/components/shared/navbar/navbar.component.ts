@@ -8,8 +8,6 @@ import { MatSnackBar } from '@angular/material';
 })
 export class NavbarComponent implements OnInit {
   activo: boolean;
-  @ViewChild('btnmenu') btnMenu: ElementRef;
-
 
   constructor(private snackBar: MatSnackBar) {
     this.activo = false;
@@ -18,12 +16,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    console.log(this.btnMenu);
-  }
+  ngOnInit() { }
 
   cargarMensaje(mensaje: string) {
-    this.snackBar.open(mensaje, 'Aceptar', {duration: 2000});
+    this.snackBar.open(mensaje, 'Aceptar', {duration: 10000});
   }
 
   mostrarOcultar() {

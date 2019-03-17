@@ -33,8 +33,6 @@ export class ClientesComponent implements OnInit {
     const customers = Array.from({length: 50}, (_, k) => {
       return this.createCustomer((k + 1));
     });
-
-    console.log(customers);
     this.dataSource = new MatTableDataSource(customers);
   }
 
