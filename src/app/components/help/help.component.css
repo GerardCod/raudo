@@ -51,7 +51,7 @@
     height: auto;
     list-style: none;
     padding-left: 0.5em;
-    border-left: 0.5em solid #CC4343;
+    border-left: 0.5em solid var(--primary-color);
     margin: 0 auto;
     /* border: 1px solid red; */
 }
@@ -63,7 +63,7 @@
 }
 
 .list-help>li>a:hover{
-    color: #CC4343;
+    color: var(--primary-color);
 }
 
 @media screen and (max-width: 1024px){

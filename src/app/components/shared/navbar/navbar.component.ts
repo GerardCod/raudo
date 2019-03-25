@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { showMessage } from 'src/app/models/exports';
 
 @Component({
   selector: 'app-navbar',
@@ -12,15 +13,11 @@ export class NavbarComponent implements OnInit {
   constructor(private snackBar: MatSnackBar) {
     this.activo = false;
     if (!window.navigator.onLine) {
-      this.cargarMensaje('No hay Internet. Revisa tu conexión.');
+      showMessage('No hay conexión a Internet, revisa tu conexión', this.snackBar);
     }
   }
 
   ngOnInit() { }
-
-  cargarMensaje(mensaje: string) {
-    this.snackBar.open(mensaje, 'Aceptar', {duration: 10000});
-  }
 
   mostrarOcultar() {
     this.activo = !this.activo;

@@ -2,12 +2,13 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DriversService } from 'src/app/services/drivers.service';
+import { showMessage } from 'src/app/models/exports';
 
 @Component({
-    selector: 'app-form-update',
-    templateUrl: './form-update.component.html',
-    styleUrls: ['./conductores.component.css']
-  })
+  selector: 'app-form-update',
+  templateUrl: './form-update.component.html',
+  styleUrls: ['./conductores.component.css']
+})
 export class FormUpdateComponent implements OnInit{
 
   user: any = {
@@ -23,8 +24,6 @@ export class FormUpdateComponent implements OnInit{
       year: 0
     }
   };
-
- 
 
   constructor(
     private dialogRef: MatDialogRef<FormUpdateComponent>,
@@ -43,14 +42,9 @@ export class FormUpdateComponent implements OnInit{
     updateDriver() {
       this.driverService.updateDriver(this.data.id, this.user).subscribe(
         data => {
-          this.openMessage('Usuario actualizado');
+          showMessage('Conductor actualizado', this.snackBar);
         },
-        error => console.log(error)
+        error => showMessage(error, this.snackBar)
       );
     }
-
-    openMessage(message:any) {
-      this.snackBar.open(message, 'ok', {duration: 15000});
-    }
-
 }

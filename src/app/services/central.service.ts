@@ -9,7 +9,7 @@ export class CentralService {
   token: any;
   options: any;
   constructor(private httpClient: HttpClient) {
-    this.token = JSON.parse(localStorage.getItem('user')).token;
+    this.token = JSON.parse(localStorage.getItem('token'));
     this.options = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + this.token
@@ -30,7 +30,7 @@ export class CentralService {
   }
 
   getImage() {
-    const image = JSON.parse(localStorage.getItem('user')).image;
+    const image = JSON.parse(localStorage.getItem('user')).img;
     return this.httpClient.get(`${APÏ_URL}images/stations/${image}`, this.options);
   }
 }

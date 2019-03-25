@@ -59,6 +59,16 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { CountComponent } from './components/count/count.component';
 import { UpdateCountComponent } from './components/update-count/update-count.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { UploadImgComponent } from './components/upload-img/upload-img.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { environment } from 'src/environments/environment';
+
+const config: SocketIoConfig = {
+  url: environment.wsUrl,
+  options: {}
+};
 
 @NgModule({
   declarations: [
@@ -91,7 +101,10 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     FormUpdateComponent,
     CountComponent,
     UpdateCountComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    UpdatePasswordComponent,
+    UploadImgComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +134,8 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     MatGridListModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
-    })
+    }),
+    SocketIoModule.forRoot(config)
   ],
   entryComponents: [
     FormDeleteComponent,

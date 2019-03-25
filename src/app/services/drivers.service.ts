@@ -12,7 +12,7 @@ export class DriversService {
   options: any;
 
   constructor(private httpClient: HttpClient) {
-    this.token = JSON.parse(localStorage.getItem('user')).token;
+    this.token = JSON.parse(localStorage.getItem('token'));
     this.options = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + this.token

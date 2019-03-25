@@ -88,7 +88,7 @@
 .form-header{
     width: 102%;
     height: 10vh;
-    background: linear-gradient(45deg, #CC4343 0%, #7F2A2A 100%);
+    background: linear-gradient(45deg, var(--primary-color) 0%, var(--dark-primary-color) 100%);
     position: relative;
     top: -40px;
     left: -7px;

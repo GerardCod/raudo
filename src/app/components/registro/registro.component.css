@@ -21,18 +21,18 @@
 }
 
 .border-primary{
-    border: 2px solid #CC4343 !important;
+    border: 2px solid var(--primary-color) !important;
     display: block;
     border-top-right-radius: 2vh;
     border-top-left-radius: 2vh;
 }
 
 .form-input:focus{
-    border: 2px solid #CC4343;
+    border: 2px solid var(--primary-color);
 }
 
 .form-input::placeholder:focus{
-    color: #CC4343;
+    color: var(--primary-color);
 }
 
 .form-input::placeholder{
@@ -43,9 +43,10 @@
     width: 100%;
     height: 10vh;
     border: none ;
-    background: #CC4343;
+    background: var(--primary-color);
     position: relative;
     bottom: 0;
+    cursor: pointer;
 }
 
 p{
@@ -56,7 +57,7 @@ p{
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(45deg,#CC4343 0%, #7F2A2A 100%);
+    background: linear-gradient(45deg,var(--primary-color) 0%, var(--dark-primary-color) 100%);
     position: relative;
     top: -80px;
     left: 0;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DriversService } from 'src/app/services/drivers.service';
 
 @Component({
   selector: 'app-map',
@@ -16,8 +17,12 @@ export class MapComponent implements OnInit {
   users: User[];
   lat = 18.4654;
   lng = -97.4022;
-  constructor() {
+  constructor(private driverService: DriversService) {
     this.users = Array.from({length: 10}, (_, k) => this.createUser(k.toString()));
+    this.driverService.getDriversAvailables().subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 
   ngOnInit() {

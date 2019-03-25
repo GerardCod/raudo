@@ -10,8 +10,8 @@ router-outlet{
 }
 
 .tab-active{
-    border-bottom: 4px solid #CC4343;
-    color: #CC4343;
+    border-bottom: 4px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 .tab{
@@ -23,7 +23,7 @@ router-outlet{
 }
 
 .tab-active{
-    border-bottom: 4px solid #CC4343;
+    border-bottom: 4px solid var(--primary-color);
 }
 
 .tab-link{
@@ -32,7 +32,7 @@ router-outlet{
 }
 
 .tab-link:active{
-    color: #CC4343;
+    color: var(--primary-color);
 }
 
 @media screen and (max-width: 1024px) {

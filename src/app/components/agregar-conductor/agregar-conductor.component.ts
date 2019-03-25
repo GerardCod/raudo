@@ -62,6 +62,15 @@ export class AgregarConductorComponent implements OnInit {
 
   }
 
+  legth (control: FormControl): {[s: string]: boolean} {
+    let value = '' + control.value + '';
+    if(value.length < 8) {
+      return {
+        invalid: true
+      };
+    }
+    return null;
+  }
 }
 
 export interface Driver {

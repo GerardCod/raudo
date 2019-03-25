@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from '@angular/material';
 import { DriversService } from 'src/app/services/drivers.service';
+import { showMessage } from 'src/app/models/exports';
 
 @Component({
     selector: 'app-form-delete',
@@ -20,15 +21,12 @@ import { DriversService } from 'src/app/services/drivers.service';
     delete() {
       this.driverService.deleteDriver(this.data.id).subscribe(
         data => {
-          this.openMessage('conductor eliminado');
+          showMessage('Condutor eliminado', this.snackBar);
         },
         error => {
-          this.openMessage(error);
+          showMessage(error, this.snackBar);
         }
       );
     }
 
-    openMessage(message:any) {
-      this.snackBar.open(message, 'ok', {duration: 15000});
-    }
   }

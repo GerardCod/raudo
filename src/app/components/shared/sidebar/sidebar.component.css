@@ -1,7 +1,7 @@
 .sidenav{
     height: 100%;
     width: 100%;
-    background: linear-gradient(45deg, #CC4343 0%, #7F2A2A 100%);
+    background: linear-gradient(45deg, var(--primary-color) 0%, var(--dark-primary-color) 100%);
 }
 
 .brand{
@@ -108,7 +108,7 @@
 }
 
 .active{
-    background: #CC4343;
+    background: var(--light-primary-color);
 }
 
 .align-left{

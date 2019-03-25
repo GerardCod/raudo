@@ -7,7 +7,7 @@
 }
 
 .header--background{
-    background-color: #fcfcfc;
+    background-color: var(--text-icons);
 }
 
 .container{
@@ -97,7 +97,7 @@
     z-index: 1;
     height: 100%;
     padding-top: 10vh;
-    background: rgba(204, 67, 67, 0.4);
+    background: var(--dark-primary-color);
 }
 
 .side-nav{

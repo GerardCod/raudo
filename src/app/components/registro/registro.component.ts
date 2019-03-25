@@ -61,10 +61,10 @@ export class RegistroComponent implements OnInit {
   noIgual(control: FormControl): {[s: string]: boolean} {
 
     let formulario = this;
-    if(control.value !== formulario.controls['contrasena1'].value){
+    if(control.value !== formulario.controls['contrasena1'].value) {
       return {
         noiguales: true
-      }
+      };
     }
 
     return null;

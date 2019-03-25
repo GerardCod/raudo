@@ -4,8 +4,8 @@
     object-fit: fill;
 }
 
-.user-data{
-    background: linear-gradient(45deg, rgb(204, 67, 67) 0%, #7F2A2A 100%);
+.user-data {
+    background: linear-gradient(45deg, var(--primary-color) 0%, var(--dark-primary-color) 100%);
     border-radius: 1em;
     padding: 1em;
 }

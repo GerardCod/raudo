@@ -8,7 +8,7 @@
 }
 
 .background-awesome {
-  background: url('../../../assets/img/taxis.jpg') center / cover, linear-gradient(135deg, rgba(204, 67, 67, 50%) 0%, rgb(127, 42, 42, 70%) 100%);
+  background: url('../../../assets/img/taxis.jpg') center / cover, linear-gradient(135deg, var(--primary-color) 0%, var(--dark-primary-color) 100%);
   background-blend-mode: multiply;
 }
 

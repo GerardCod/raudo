@@ -15,9 +15,11 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { HelpComponent } from './components/help/help.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const loginRoutes: Routes = [
   {path: 'iniciar', component: IniciarSesionComponent},
+  {path: 'cambiar-password', component: ChangePasswordComponent},
   {path: 'registro', component: RegistroComponent},
   {path: '', pathMatch: 'full', redirectTo: '/home'}
 ];

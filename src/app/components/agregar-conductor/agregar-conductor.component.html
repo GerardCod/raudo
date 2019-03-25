@@ -120,7 +120,7 @@
       </p>
       <p class="input">
         <mat-form-field  appearance="outline" class="full">
-          <mat-label>Usuario del chofer</mat-label>
+          <mat-label>Contraseña del chofer</mat-label>
           <input
             type="password"
             matInput
@@ -132,9 +132,12 @@
           >
             Ingresa la contraseña
           </mat-error>
+          <mat-error ngIf="form.controls['password'].errors?.length">
+            La contraseña debe tener 8 caracteres.
+          </mat-error>
         </mat-form-field>
       </p>
-          <button class="button" mat-raised-button color="warn" large type="submit">Guardar conductor</button>
+          <button class="button" mat-raised-button color="accent" large type="submit">Guardar conductor</button>
         </form>
       </div>
     </div>

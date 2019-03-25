@@ -28,8 +28,8 @@ export class UpdateCountComponent implements OnInit {
   }
 
   updateData() {
-    let email: any = JSON.parse(localStorage.getItem('user')).email;
-    let password: any = JSON.parse(localStorage.getItem('user')).password;
+    const email: any = JSON.parse(localStorage.getItem('user')).email;
+    const password: any = JSON.parse(localStorage.getItem('user')).password;
     this.user = {
       name: this.form.controls['name'].value,
       rate: this.form.controls['rate'].value,
@@ -38,7 +38,7 @@ export class UpdateCountComponent implements OnInit {
         telephone: this.form.controls['manager_telephone'].value
       },
       town: this.form.controls['town'].value
-    }
+    };
 
     this.centralService.patchUser(this.user).subscribe(
       data => {
@@ -53,6 +53,8 @@ export class UpdateCountComponent implements OnInit {
 
         localStorage.removeItem('user');
         localStorage.setItem('user', JSON.stringify(newUser));
+        console.log(data);
+        location.reload();
       },
       error => {
         console.log(error);

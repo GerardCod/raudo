@@ -1,6 +1,7 @@
 .img{
-    width: 45%;
-    height: 100%;
+    width: 30%;
+    height:70%;
+    object-fit: fill;
 }
 
 .link-home{
