@@ -64,6 +64,7 @@ import { UploadImgComponent } from './components/upload-img/upload-img.component
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
+import { PipesModule } from './pipes/pipes.module';
 
 const config: SocketIoConfig = {
   url: environment.wsUrl,
@@ -135,7 +136,8 @@ const config: SocketIoConfig = {
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
     }),
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    PipesModule
   ],
   entryComponents: [
     FormDeleteComponent,

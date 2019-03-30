@@ -14,11 +14,13 @@ export class UploadImgComponent implements OnInit {
   form: FormGroup;
   private file: File;
   urlImg: any;
+  img: any;
 
   constructor( private centralService: CentralService, private snackBar: MatSnackBar ) {
     this.form = new FormGroup({
       'img': new FormControl(null, Validators.required)
     });
+    this.img = JSON.parse(localStorage.getItem('user')).img;
   }
 
   ngOnInit() {
@@ -27,7 +29,7 @@ export class UploadImgComponent implements OnInit {
   uploadImage() {
     const img = new FormData();
     img.append('img', this.file);
-    console.log(img);
+    console.log(img.getAll('img'));
     this.centralService.uploadImage(img).subscribe(
       data => {
         showMessage('Imagen subida con éxito', this.snackBar);
@@ -43,7 +45,7 @@ export class UploadImgComponent implements OnInit {
   selectImage(event) {
     this.file = event.target.files[0];
 
-    if(this.file.type.indexOf('image') < 0) {
+    if (this.file.type.indexOf('image') < 0) {
       showMessage('Elige solamente imágenes', this.snackBar);
     }
 

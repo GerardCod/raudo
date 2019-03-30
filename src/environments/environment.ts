@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  wsUrl: 'https://taximex-api.herokuapp.com'
+  wsUrl: 'http://taximex-api.herokuapp.com/'
 };
 
 /*

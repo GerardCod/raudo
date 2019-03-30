@@ -1,6 +1,6 @@
 <mat-grid-list cols="2" rowHeight="1:1">
   <mat-grid-tile>
-    <img *ngIf="!file" class="img" src="../../../assets/img/Devops.png" alt="">
+    <img *ngIf="!file" class="img" [src]="img | imagen" alt="">
     <img *ngIf="file" class="img" [src]="urlImg" alt="Imagen seleccionada">
   </mat-grid-tile>
   <mat-grid-tile>

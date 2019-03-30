@@ -9,31 +9,17 @@
           <p class="input">
             <mat-form-field  appearance="outline" class="full">
               <mat-label>Nombre del chofer</mat-label>
-              <input
-              type="text"
-              matInput
-              placeholder="Nombre"
-                formControlName="name"
-              />
-              <mat-error
-              *ngIf="form.controls['name'].errors?.required"
-              >
-              Ingresa un nombre
+              <input type="text" matInput placeholder="Nombre" formControlName="name"/>
+              <mat-error *ngIf="form.controls['name'].errors?.required">
+                Ingresa un nombre
               </mat-error>
             </mat-form-field>
           </p>
           <p class="input">
             <mat-form-field appearance="outline" class="full">
               <mat-label>Apellidos del chofer</mat-label>
-              <input
-                type="text"
-                matInput
-                placeholder="apellidos"
-                formControlName="lastName"
-              />
-              <mat-error
-                *ngIf="form.controls['lastName'].errors?.required"
-                >
+              <input type="text" matInput placeholder="apellidos" formControlName="lastName"/>
+              <mat-error *ngIf="form.controls['lastName'].errors?.required">
                 Ingresa los apellidos
               </mat-error>
             </mat-form-field>
@@ -41,102 +27,60 @@
           <p class="input">
             <mat-form-field appearance="outline" class="full">
               <mat-label>Ingrese el teléfono</mat-label>
-              <input
-              type="tel"
-              matInput
-              placeholder="teléfono"
-              formControlName="phone"
-              />
-              <mat-error
-              *ngIf="form.controls['phone'].errors?.required"
-              >
-              Ingresa un teléfono
-            </mat-error>
-          </mat-form-field>
-        </p>
-        <p class="input">
-          <mat-form-field appearance="outline" class="full">
-            <mat-label>Placas de la unidad</mat-label>
-            <input
-            type="text"
-            matInput
-            placeholder="placas"
-            formControlName="plate"
-            />
-            <mat-error
-            *ngIf="form.controls['plate'].errors?.required"
-            >
-            Ingresa las placas
-          </mat-error>
-        </mat-form-field>
-      </p>
-      <p class="input">
-        <mat-form-field appearance="outline" class="full">
-          <mat-label>Modelo de la unidad</mat-label>
-          <input
-          type="text"
-          matInput
-          placeholder="modelo"
-          formControlName="model"
-          />
-          <mat-error
-                *ngIf="form.controls['model'].errors?.required"
-              >
-              Ingresa un modelo
-            </mat-error>
-          </mat-form-field>
-        </p>
-        <p class="input">
-          <mat-form-field appearance="outline" class="full">
-            <mat-label>Año del modelo</mat-label>
-            <input
-            type="date"
-            matInput
-            placeholder="año"
-            formControlName="year"
-            />
-            <mat-error
-            *ngIf="form.controls['year'].errors?.required"
-            >
-            Ingresa un modelo
-          </mat-error>
-        </mat-form-field>
-      </p>
-      <p class="input">
-        <mat-form-field  appearance="outline" class="full">
-          <mat-label>Usuario del chofer</mat-label>
-          <input
-            type="text"
-            matInput
-            placeholder="Usuario"
-            formControlName="user"
-          />
-          <mat-error
-            *ngIf="form.controls['user'].errors?.required"
-          >
-            Ingresa un nombre de usuario
-          </mat-error>
-        </mat-form-field>
-      </p>
-      <p class="input">
-        <mat-form-field  appearance="outline" class="full">
-          <mat-label>Contraseña del chofer</mat-label>
-          <input
-            type="password"
-            matInput
-            placeholder="Contraseña"
-            formControlName="password"
-          />
-          <mat-error
-            *ngIf="form.controls['password'].errors?.required"
-          >
-            Ingresa la contraseña
-          </mat-error>
-          <mat-error ngIf="form.controls['password'].errors?.length">
-            La contraseña debe tener 8 caracteres.
-          </mat-error>
-        </mat-form-field>
-      </p>
+              <input type="tel" matInput placeholder="teléfono" formControlName="phone"/>
+              <mat-error *ngIf="form.controls['phone'].errors?.required">
+                Ingresa un teléfono
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <p class="input">
+            <mat-form-field appearance="outline" class="full">
+              <mat-label>Placas de la unidad</mat-label>
+              <input type="text" matInput placeholder="placas" formControlName="plate"/>
+              <mat-error *ngIf="form.controls['plate'].errors?.required">
+                Ingresa las placas
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <p class="input">
+            <mat-form-field appearance="outline" class="full">
+              <mat-label>Modelo de la unidad</mat-label>
+              <input type="text" matInput placeholder="modelo" formControlName="model"/>
+              <mat-error *ngIf="form.controls['model'].errors?.required">
+                Ingresa un modelo
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <p class="input">
+            <mat-form-field appearance="outline" class="full">
+              <mat-label>Año del modelo</mat-label>
+              <input type="date" matInput placeholder="año" formControlName="year"/>
+              <mat-error *ngIf="form.controls['year'].errors?.required">
+                Ingresa un modelo
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <p class="input">
+            <mat-form-field  appearance="outline" class="full">
+              <mat-label>Usuario del chofer</mat-label>
+              <input type="text" matInput placeholder="Usuario" formControlName="user"/>
+              <mat-error *ngIf="form.controls['user'].errors?.required">
+                Ingresa un nombre de usuario
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <p class="input">
+            <mat-form-field  appearance="outline" class="full">
+              <mat-label>Contraseña del chofer</mat-label>
+              <input type="password" matInput placeholder="Contraseña" formControlName="password"/>
+              <mat-error *ngIf="form.controls['password'].errors?.required">
+                Ingresa la contraseña
+              </mat-error>
+              <mat-error *ngIf="form.controls['password'].errors?.length">
+                La contraseña debe tener 8 caracteres.
+              </mat-error>
+            </mat-form-field>
+          </p>
           <button class="button" mat-raised-button color="accent" large type="submit">Guardar conductor</button>
         </form>
       </div>

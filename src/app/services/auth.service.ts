@@ -22,12 +22,12 @@ export class AuthService {
       })
     };
 
-    return this.httpClient.post(`${APÏ_URL}auth`, user, options)
+    return this.httpClient.post(`${APÏ_URL}auth/station`, user, options)
     .pipe(map(
       (data: any) => {
         if (data) {
           localStorage.setItem('token', JSON.stringify(data.token));
-          localStorage.setItem('user', JSON.stringify(data.usuario));
+          localStorage.setItem('user', JSON.stringify(data.station));
         }
         return user;
       }

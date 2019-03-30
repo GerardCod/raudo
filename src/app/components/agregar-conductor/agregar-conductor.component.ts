@@ -28,7 +28,7 @@ export class AgregarConductorComponent implements OnInit {
       'model': new FormControl(null, Validators.required),
       'year': new FormControl(null, Validators.required),
       'user': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, Validators.required)
+      'password': new FormControl(null, [Validators.required, this.length])
     });
   }
 
@@ -62,7 +62,7 @@ export class AgregarConductorComponent implements OnInit {
 
   }
 
-  legth (control: FormControl): {[s: string]: boolean} {
+  length (control: FormControl): {[s: string]: boolean} {
     let value = '' + control.value + '';
     if(value.length < 8) {
       return {

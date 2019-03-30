@@ -14,7 +14,7 @@ export class CentralService {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + this.token
       })
-    }
+    };
   }
 
   patchUser(user: any) {
@@ -30,7 +30,7 @@ export class CentralService {
   }
 
   getImage() {
-    const image = JSON.parse(localStorage.getItem('user')).img;
-    return this.httpClient.get(`${APÏ_URL}images/stations/${image}`, this.options);
+    const img = JSON.parse(localStorage.getItem('user')).img;
+    return this.httpClient.get(`${APÏ_URL}images/stations/${img}`, {responseType: 'blob'});
   }
 }

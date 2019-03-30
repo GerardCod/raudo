@@ -16,7 +16,7 @@ export interface Central {
     attendant: {
         name: any;
         telephone: any;
-    }
+    };
     town: any;
     password: any;
     email: any;

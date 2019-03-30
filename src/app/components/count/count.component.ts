@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CentralService } from 'src/app/services/central.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-count',
@@ -8,10 +10,28 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CountComponent implements OnInit {
 
 @Input() currentUser: any;
+  img: any;
+  avatar: any;
 
-  constructor() { }
+  constructor(private centralService: CentralService, private snackBar: MatSnackBar) {
+    this.img = JSON.parse(localStorage.getItem('user')).img;
+
+    this.centralService.getImage().subscribe(
+      data => this.createImageFromBlob(data),
+      error => console.log(error)
+    );
+  }
 
   ngOnInit() {
   }
 
+  createImageFromBlob(blob: Blob) {
+    const reader = new FileReader();
+    const photo = new File([blob], this.img, {type: blob.type});
+    reader.readAsDataURL(photo);
+    reader.onload = (event: any) => {
+      this.avatar = event.target.result;
+      console.log(this.avatar);
+    };
+  }
 }

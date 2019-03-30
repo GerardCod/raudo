@@ -1,13 +1,13 @@
 <section class="main">
   <div class="container-grid">
     <div class="list-drivers mat-elevation-z8">
-      <mat-list>
+      <mat-list >
         <ng-container *ngFor="let user of users">
           <mat-list-item *ngIf="user.active">
             <img matListAvatar [src]="user.img" alt="..." />
             <div matLine (click)="redirectTo(user.lat, user.lng)">
-              <h3 >{{ user.user }}</h3>
-              <div *ngIf="user.active" class="user-active"></div>
+              <h5 >{{ user.user }}</h5>
+              <div *ngIf="user.active" hclass="user-active font-active"></div>
             </div>
           </mat-list-item>
         </ng-container>

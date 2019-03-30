@@ -42,7 +42,7 @@ export class DriversService {
   }
 
   getDriversAvailables(){
-    return this.httpClient.get(`${APÏ_URL}station/availables`, this.options);
+    return this.httpClient.get(`${APÏ_URL}cabs/station/availables`, this.options);
   }
 
 }
