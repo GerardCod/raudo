@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { MatFormFieldModule } from '@angular/material';
+import { MatFormFieldModule, MatProgressSpinnerModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -25,6 +25,7 @@ import {
   MatTabsModule,
   MatGridListModule
 } from '@angular/material';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -65,6 +66,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
 import { PipesModule } from './pipes/pipes.module';
+import { ChatComponent } from './components/chat/chat.component';
+import { ConversationComponent } from './components/conversation/conversation.component';
 
 const config: SocketIoConfig = {
   url: environment.wsUrl,
@@ -105,7 +108,9 @@ const config: SocketIoConfig = {
     BreadcrumbsComponent,
     UpdatePasswordComponent,
     UploadImgComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ChatComponent,
+    ConversationComponent
   ],
   imports: [
     BrowserModule,
@@ -137,7 +142,9 @@ const config: SocketIoConfig = {
       apiKey: 'AIzaSyBFGDgZtkqvlcgyihdkveZVLu95_dCOoTc'
     }),
     SocketIoModule.forRoot(config),
-    PipesModule
+    PipesModule,
+    ScrollingModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [
     FormDeleteComponent,

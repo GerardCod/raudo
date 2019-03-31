@@ -1,21 +1,30 @@
 <section class="main">
-  <div class="container-grid">
+  <mat-spinner *ngIf="!ready"></mat-spinner>
+  <div *ngIf="ready" class="container-grid">
     <div class="list-drivers mat-elevation-z8">
       <mat-list >
         <ng-container *ngFor="let user of users">
           <mat-list-item *ngIf="user.active">
-            <img matListAvatar [src]="user.img" alt="..." />
-            <div matLine (click)="redirectTo(user.lat, user.lng)">
-              <h5 >{{ user.user }}</h5>
+            <img matListAvatar [src]="user.img | imagen:'cab'" alt="..." />
+            <div class="user" matLine (click)="redirectTo(user.location.latitude, user.location.longitude)">
+              <h6 >{{ user.driver.name | name }}</h6>
               <div *ngIf="user.active" hclass="user-active font-active"></div>
             </div>
+            <mat-divider></mat-divider>
           </mat-list-item>
         </ng-container>
       </mat-list>
     </div>
 
-    <agm-map class="map mat-elevation-z8" [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-map class="map mat-elevation-z8" [latitude]="lat" [longitude]="lng" [zoom]="12">
+        <ng-container *ngFor="let user of users">
+          <agm-marker [latitude]="user.location.latitude" [longitude]="user.location.longitude">
+            <agm-info-window class="flex flex--center">
+              <img class="info__img" [src]="user.img | imagen:'cab'" alt="avatar">
+              <p class="info__text">{{user.driver.name}} {{user.driver.last_name}}</p>
+            </agm-info-window>
+          </agm-marker>
+        </ng-container>
     </agm-map>
   </div>
 </section>

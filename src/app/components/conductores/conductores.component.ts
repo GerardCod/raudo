@@ -27,6 +27,7 @@ export class ConductoresComponent implements OnInit {
   displayedColumns: string[] = ['name', 'user', 'phone', 'placa', 'model', 'year', 'update', 'delete'];
   dataSource: MatTableDataSource<TaxiData>;
   users: any[] = [];
+  ready = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -40,6 +41,7 @@ export class ConductoresComponent implements OnInit {
         this.users = data;
         this.users = this.users.map(createNewUser);
         this.dataSource = new MatTableDataSource(this.users);
+        this.ready = true;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },

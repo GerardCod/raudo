@@ -1,0 +1,59 @@
+.conversation{
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+.grid{
+    display: grid;
+}
+
+.grid--conversation{
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 1fr 10vh;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex--left{
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.conversation__name, .conversation__data, .conversation__controls{
+    width: 100%;
+    height: 100%;
+}
+
+.conversation__name{
+    background: #fcfcfc;
+    padding: 0 2em;
+}
+
+.conversation__data{
+    background: #fefefe;
+}
+
+.conversation__controls{
+    background: #fcfcfc;
+    display: flex;
+    align-items: center;
+    padding: 0 2em;
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.username{
+    margin-left: 2em;
+}
+
+.control__message{
+    width: 90%;
+}

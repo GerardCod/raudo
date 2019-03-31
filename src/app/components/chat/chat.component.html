@@ -1,0 +1,31 @@
+<section class="container">
+  <mat-spinner *ngIf="!ready"></mat-spinner>
+  <mat-grid-list *ngIf="ready" class="list" cols="4" rowHeight="fit">
+    <mat-grid-tile>
+      <div class="grid grid--contacts">
+        <div class="search">
+          <p>
+            <mat-form-field class="full">
+                <input matInput placeholder="Buscar" required>
+                <mat-icon matPrefix>search</mat-icon>
+            </mat-form-field>
+          </p>
+        </div>
+        <cdk-virtual-scroll-viewport [itemSize]="50">
+            <mat-list class="list" role="list">
+              <mat-list-item (click)="changeContact(contact)" *ngFor="let contact of contacts" class="item grid grid--contact" role="listitem">
+                <img class="avatar" [src]="contact.img | imagen:'cab'" alt="avatar">
+                <div class="description flex flex--center">
+                  <h6>{{contact.driver.name | name}}</h6>
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-item>
+            </mat-list>
+        </cdk-virtual-scroll-viewport>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <app-conversation [user]="contactSelected" class="data"></app-conversation>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>

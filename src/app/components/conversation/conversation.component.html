@@ -1,0 +1,18 @@
+<section class="conversation grid grid--conversation">
+  <div class="conversation__name flex flex--left mat-elevation-z8">
+    <img class="avatar" [src]="user.img | imagen:'cab'" alt="avatar">
+    <h6 class="username">{{user.driver.name}} {{user.driver.last_name}}</h6>
+    <mat-divider></mat-divider>
+  </div>
+  <cdk-virtual-scroll-viewport class="conversation__data" [itemSize]="50">
+    <mat-divider></mat-divider>
+  </cdk-virtual-scroll-viewport>
+  <div class="conversation__controls">
+    <mat-form-field class="control__message">
+      <input matInput placeholder="Escribe un mensaje">
+    </mat-form-field>
+    <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</section>

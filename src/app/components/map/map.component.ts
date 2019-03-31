@@ -12,25 +12,21 @@ export class MapComponent implements OnInit {
   users: User[];
   lat = 18.4654;
   lng = -97.4022;
+  ready = false;
+
   constructor(private driverService: DriversService, private socket: WebSocketService) {
-    this.socket.listen('cab_available')
-    .subscribe(
-      msg => {
-        this.driverService.getDriversAvailables().subscribe(
-          (data: any) => {
-            const dataArray: Array<any> = data.cabsAvaliables;
-            console.log(data.cabsAvaliables);
-            this.users = dataArray.map(this.createUser);
-            console.log(this.users);
-          },
-          error => console.log(error)
-        );
+    this.driverService.getDriversAvailables().subscribe(
+      (data: any) => {
+        const dataArray: Array<any> = data.cabsAvaliables;
+        this.ready = true;
+        this.users = dataArray.map(this.createUser);
       },
       error => console.log(error)
     );
   }
 
   ngOnInit() {
+    this.listenAvailables();
   }
 
   createUser(data: any): User {
@@ -42,13 +38,31 @@ export class MapComponent implements OnInit {
       },
       img: data.img,
       location: data.location,
-      active: data.active
+      active: data.available
     }
   }
 
   redirectTo(lat: number, lng: number) {
     this.lat = lat;
     this.lng = lng;
+  }
+
+  listenAvailables() {
+    this.socket.listen('cab_available')
+    .subscribe(
+      msg => {
+        this.driverService.getDriversAvailables().subscribe(
+          (data: any) => {
+            console.log(data);
+            const dataArray: Array<any> = data.cabsAvaliables;
+            this.users = dataArray.map(this.createUser);
+            console.log(this.users);
+          },
+          error => console.log(error)
+        );
+      },
+      error => console.log(error)
+    );
   }
 }
 

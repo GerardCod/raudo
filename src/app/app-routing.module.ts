@@ -16,6 +16,7 @@ import { NotFoundComponent } from './components/shared/not-found/not-found.compo
 import { HelpComponent } from './components/help/help.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 const loginRoutes: Routes = [
   {path: 'iniciar', component: IniciarSesionComponent},
@@ -31,6 +32,7 @@ const dashboardRoutes: Routes = [
   {path: 'agregar', component: AgregarConductorComponent, data: {breadcrumb: 'Agregar Conductor'}},
   {path: 'perfil', component: PerfilComponent, data: {breadcrumb: 'Perfil'}},
   {path: 'solicitudes', component: ClientesComponent, data: {breadcrumb: 'Solicitudes'}},
+  {path: 'mensajes', component: ChatComponent, data: {breadcrumb: 'Chat'}},
   {path: '', pathMatch: 'full', redirectTo: 'inicio'}
 ];
 

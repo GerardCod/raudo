@@ -12,7 +12,8 @@ export class SidebarComponent implements OnInit {
     {path: 'inicio', title: 'Inicio', icon: 'dashboard'},
     {path: 'conductores', title: 'Conductores', icon: 'commute'},
     {path: 'mapa', title: 'Mapa', icon: 'location_on'},
-    {path: 'solicitudes', title: 'Solicitudes', icon: 'library_books'}
+    {path: 'solicitudes', title: 'Solicitudes', icon: 'library_books'},
+    {path: 'mensajes', title: 'Mensajes', icon: 'near_me'}
   ];
 
   constructor() {
