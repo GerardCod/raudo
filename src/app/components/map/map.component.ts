@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DriversService } from 'src/app/services/drivers.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
+import { showMessage } from 'src/app/models/exports';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-map',
@@ -10,22 +12,22 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 export class MapComponent implements OnInit {
 
   users: User[];
+  usersConnected: User[];
   lat = 18.4654;
   lng = -97.4022;
   ready = false;
+  dataArrayAvailable: Array<any>;
+  dataArray: Array<any>;
 
-  constructor(private driverService: DriversService, private socket: WebSocketService) {
-    this.driverService.getDriversAvailables().subscribe(
-      (data: any) => {
-        const dataArray: Array<any> = data.cabsAvaliables;
-        this.ready = true;
-        this.users = dataArray.map(this.createUser);
-      },
-      error => console.log(error)
-    );
-
+  constructor(private driverService: DriversService, private snackBar: MatSnackBar, private socket: WebSocketService) {
+    this.getListCabs();
+    this.getCabs();
     this.socket.listen('cab_disconnect').subscribe(
-      data => console.log(data),
+      (data: any) => {
+        showMessage(`Se desconectó ${data.driver.name} ${data.driver.last_name} hace un momento`, this.snackBar);
+        this.getListCabs();
+        this.getCabs();
+      },
       error => console.log(error)
     );
   }
@@ -56,15 +58,29 @@ export class MapComponent implements OnInit {
     this.socket.listen('cab_available')
     .subscribe(
       msg => {
-        this.driverService.getDriversAvailables().subscribe(
-          (data: any) => {
-            console.log(data);
-            const dataArray: Array<any> = data.cabsAvaliables;
-            this.users = dataArray.map(this.createUser);
-            console.log(this.users);
-          },
-          error => console.log(error)
-        );
+        this.getListCabs();
+        this.getCabs();
+      },
+      error => console.log(error)
+    );
+  }
+
+  getListCabs() {
+    this.driverService.getDriversAvailables().subscribe(
+      (data: any) => {
+        this.dataArrayAvailable = data.cabsAvaliables;
+        this.ready = true;
+        this.usersConnected = this.dataArrayAvailable.map(this.createUser);
+      },
+      error => console.log(error)
+    );
+  }
+
+  getCabs(){
+    this.driverService.getDrivers().subscribe(
+      (data) => {
+        console.log(data);
+        this.dataArray = data;
       },
       error => console.log(error)
     );

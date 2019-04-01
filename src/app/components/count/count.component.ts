@@ -17,6 +17,7 @@ export class CountComponent implements OnInit {
   constructor(private centralService: CentralService, private snackBar: MatSnackBar) {
     this.img = JSON.parse(localStorage.getItem('user')).img;
     this.checked = JSON.parse(localStorage.getItem('user')).manageable;
+    this.sendState();
     this.centralService.getImage().subscribe(
       data => this.createImageFromBlob(data),
       error => console.log(error)
@@ -39,6 +40,10 @@ export class CountComponent implements OnInit {
   changeState() {
     this.checked = !this.checked;
     console.log(this.checked);
+    this.sendState();
+  }
+
+  sendState() {
     this.centralService.setManageable(this.checked).subscribe(
       data => console.log(data),
       error => console.log(error)

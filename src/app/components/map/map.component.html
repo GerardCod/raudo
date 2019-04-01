@@ -3,12 +3,17 @@
   <div *ngIf="ready" class="container-grid">
     <div class="list-drivers mat-elevation-z8">
       <mat-list >
-        <ng-container *ngFor="let user of users">
-          <mat-list-item *ngIf="user.active">
+        <ng-container *ngFor="let user of dataArray">
+          <mat-list-item>
             <img matListAvatar [src]="user.img | imagen:'cab'" alt="..." />
             <div class="user" matLine (click)="redirectTo(user.location.latitude, user.location.longitude)">
               <h4>{{ user.driver.name | name }}</h4>
-              <div *ngIf="user.active" hclass="user-active font-active"></div>
+              <p *ngIf="user.available">
+                Activo
+              </p>
+              <p *ngIf="!user.available">
+                Última conexión {{user.last_connection | date:'shortTime'}}
+              </p>
             </div>
             <mat-divider></mat-divider>
           </mat-list-item>
@@ -17,7 +22,7 @@
     </div>
 
     <agm-map class="map mat-elevation-z8" [latitude]="lat" [longitude]="lng" [zoom]="12">
-        <ng-container *ngFor="let user of users">
+        <ng-container *ngFor="let user of usersConnected">
           <agm-marker [latitude]="user.location.latitude" [longitude]="user.location.longitude">
             <agm-info-window class="flex flex--center">
               <img class="info__img" [src]="user.img | imagen:'cab'" alt="avatar">
