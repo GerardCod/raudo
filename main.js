@@ -824,7 +824,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <ol>\r\n    <li *ngFor=\"let item of menu; let i = index\">\r\n      <a [routerLink]=\"item.path\" *ngIf=\"i !== (menu.length - 1)\">\r\n        {{ item.name }}\r\n      </a>\r\n      <span *ngIf=\"i === (menu.length - 1)\">{{ item.name }}</span>\r\n    </li>\r\n  </ol>\r\n</div>"
+module.exports = "<div>\r\n  <ol>\r\n    <li *ngFor=\"let item of menu; let i = index\">\r\n      <a [routerLink]=\"item.path\" *ngIf=\"i !== (menu.length)\">\r\n        {{ item.name }}\r\n      </a>\r\n      <span *ngIf=\"i === (menu.length)\">{{ item.name }}</span>\r\n    </li>\r\n  </ol>\r\n</div>"
 
 /***/ }),
 
