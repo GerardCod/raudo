@@ -1671,6 +1671,7 @@ var CountComponent = /** @class */ (function () {
         this.snackBar = snackBar;
         this.img = JSON.parse(localStorage.getItem('user')).img;
         this.checked = JSON.parse(localStorage.getItem('user')).manageable;
+        this.sendState();
         this.centralService.getImage().subscribe(function (data) { return _this.createImageFromBlob(data); }, function (error) { return console.log(error); });
     }
     CountComponent.prototype.ngOnInit = function () {
@@ -1688,6 +1689,9 @@ var CountComponent = /** @class */ (function () {
     CountComponent.prototype.changeState = function () {
         this.checked = !this.checked;
         console.log(this.checked);
+        this.sendState();
+    };
+    CountComponent.prototype.sendState = function () {
         this.centralService.setManageable(this.checked).subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2282,7 +2286,7 @@ module.exports = ".main{\r\n    height: 100%;\r\n    background: #eeeeee;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"main\">\r\n  <mat-spinner *ngIf=\"!ready\"></mat-spinner>\r\n  <div *ngIf=\"ready\" class=\"container-grid\">\r\n    <div class=\"list-drivers mat-elevation-z8\">\r\n      <mat-list >\r\n        <ng-container *ngFor=\"let user of users\">\r\n          <mat-list-item *ngIf=\"user.active\">\r\n            <img matListAvatar [src]=\"user.img | imagen:'cab'\" alt=\"...\" />\r\n            <div class=\"user\" matLine (click)=\"redirectTo(user.location.latitude, user.location.longitude)\">\r\n              <h4>{{ user.driver.name | name }}</h4>\r\n              <div *ngIf=\"user.active\" hclass=\"user-active font-active\"></div>\r\n            </div>\r\n            <mat-divider></mat-divider>\r\n          </mat-list-item>\r\n        </ng-container>\r\n      </mat-list>\r\n    </div>\r\n\r\n    <agm-map class=\"map mat-elevation-z8\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"12\">\r\n        <ng-container *ngFor=\"let user of users\">\r\n          <agm-marker [latitude]=\"user.location.latitude\" [longitude]=\"user.location.longitude\">\r\n            <agm-info-window class=\"flex flex--center\">\r\n              <img class=\"info__img\" [src]=\"user.img | imagen:'cab'\" alt=\"avatar\">\r\n              <p class=\"info__text\">{{user.driver.name}} {{user.driver.last_name}}</p>\r\n            </agm-info-window>\r\n          </agm-marker>\r\n        </ng-container>\r\n    </agm-map>\r\n  </div>\r\n</section>\r\n"
+module.exports = "<section class=\"main\">\r\n  <mat-spinner *ngIf=\"!ready\"></mat-spinner>\r\n  <div *ngIf=\"ready\" class=\"container-grid\">\r\n    <div class=\"list-drivers mat-elevation-z8\">\r\n      <mat-list >\r\n        <ng-container *ngFor=\"let user of dataArray\">\r\n          <mat-list-item>\r\n            <img matListAvatar [src]=\"user.img | imagen:'cab'\" alt=\"...\" />\r\n            <div class=\"user\" matLine (click)=\"redirectTo(user.location.latitude, user.location.longitude)\">\r\n              <h4>{{ user.driver.name | name }}</h4>\r\n              <p *ngIf=\"user.available\">\r\n                Activo\r\n              </p>\r\n              <p *ngIf=\"!user.available\">\r\n                Última conexión {{user.last_connection | date:'shortTime'}}\r\n              </p>\r\n            </div>\r\n            <mat-divider></mat-divider>\r\n          </mat-list-item>\r\n        </ng-container>\r\n      </mat-list>\r\n    </div>\r\n\r\n    <agm-map class=\"map mat-elevation-z8\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"12\">\r\n        <ng-container *ngFor=\"let user of usersConnected\">\r\n          <agm-marker [latitude]=\"user.location.latitude\" [longitude]=\"user.location.longitude\">\r\n            <agm-info-window class=\"flex flex--center\">\r\n              <img class=\"info__img\" [src]=\"user.img | imagen:'cab'\" alt=\"avatar\">\r\n              <p class=\"info__text\">{{user.driver.name}} {{user.driver.last_name}}</p>\r\n            </agm-info-window>\r\n          </agm-marker>\r\n        </ng-container>\r\n    </agm-map>\r\n  </div>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -2300,24 +2304,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_services_drivers_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/drivers.service */ "./src/app/services/drivers.service.ts");
 /* harmony import */ var src_app_services_web_socket_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/web-socket.service */ "./src/app/services/web-socket.service.ts");
+/* harmony import */ var src_app_models_exports__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/models/exports */ "./src/app/models/exports.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+
+
 
 
 
 
 var MapComponent = /** @class */ (function () {
-    function MapComponent(driverService, socket) {
+    function MapComponent(driverService, snackBar, socket) {
         var _this = this;
         this.driverService = driverService;
+        this.snackBar = snackBar;
         this.socket = socket;
         this.lat = 18.4654;
         this.lng = -97.4022;
         this.ready = false;
-        this.driverService.getDriversAvailables().subscribe(function (data) {
-            var dataArray = data.cabsAvaliables;
-            _this.ready = true;
-            _this.users = dataArray.map(_this.createUser);
+        this.getListCabs();
+        this.getCabs();
+        this.socket.listen('cab_disconnect').subscribe(function (data) {
+            Object(src_app_models_exports__WEBPACK_IMPORTED_MODULE_4__["showMessage"])("Se desconect\u00F3 " + data.driver.name + " " + data.driver.last_name + " hace un momento", _this.snackBar);
+            _this.getListCabs();
+            _this.getCabs();
         }, function (error) { return console.log(error); });
-        this.socket.listen('cab_disconnect').subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); });
     }
     MapComponent.prototype.ngOnInit = function () {
         this.listenAvailables();
@@ -2342,12 +2352,23 @@ var MapComponent = /** @class */ (function () {
         var _this = this;
         this.socket.listen('cab_available')
             .subscribe(function (msg) {
-            _this.driverService.getDriversAvailables().subscribe(function (data) {
-                console.log(data);
-                var dataArray = data.cabsAvaliables;
-                _this.users = dataArray.map(_this.createUser);
-                console.log(_this.users);
-            }, function (error) { return console.log(error); });
+            _this.getListCabs();
+            _this.getCabs();
+        }, function (error) { return console.log(error); });
+    };
+    MapComponent.prototype.getListCabs = function () {
+        var _this = this;
+        this.driverService.getDriversAvailables().subscribe(function (data) {
+            _this.dataArrayAvailable = data.cabsAvaliables;
+            _this.ready = true;
+            _this.usersConnected = _this.dataArrayAvailable.map(_this.createUser);
+        }, function (error) { return console.log(error); });
+    };
+    MapComponent.prototype.getCabs = function () {
+        var _this = this;
+        this.driverService.getDrivers().subscribe(function (data) {
+            console.log(data);
+            _this.dataArray = data;
         }, function (error) { return console.log(error); });
     };
     MapComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2356,7 +2377,7 @@ var MapComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./map.component.html */ "./src/app/components/map/map.component.html"),
             styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/components/map/map.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_drivers_service__WEBPACK_IMPORTED_MODULE_2__["DriversService"], src_app_services_web_socket_service__WEBPACK_IMPORTED_MODULE_3__["WebSocketService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_drivers_service__WEBPACK_IMPORTED_MODULE_2__["DriversService"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSnackBar"], src_app_services_web_socket_service__WEBPACK_IMPORTED_MODULE_3__["WebSocketService"]])
     ], MapComponent);
     return MapComponent;
 }());
@@ -2529,6 +2550,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _models_central__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/central */ "./src/app/models/central.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_models_exports__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/models/exports */ "./src/app/models/exports.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+
+
 
 
 
@@ -2536,19 +2561,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RegistroComponent = /** @class */ (function () {
-    function RegistroComponent(auth, router) {
+    function RegistroComponent(auth, router, snackBar) {
         this.auth = auth;
         this.router = router;
+        this.snackBar = snackBar;
         this.iniciarFormulario();
     }
     RegistroComponent.prototype.ngOnInit = function () {
     };
     RegistroComponent.prototype.singUp = function () {
+        var _this = this;
         var central = new _models_central__WEBPACK_IMPORTED_MODULE_4__["Central"](this.formulario.controls['nombreCentral'].value, this.formulario.controls['tarifa'].value, {
             name: this.formulario.controls['nombreEncargado'].value,
             telephone: this.formulario.controls['telefono'].value
         }, this.formulario.controls['localidad'].value, this.formulario.controls['contrasena1'].value, this.formulario.controls['email'].value);
-        this.auth.centralSignUp(central).subscribe(function (response) { return console.log(response); }, function (error) { return console.log(error); });
+        this.auth.centralSignUp(central).subscribe(function (response) { return Object(src_app_models_exports__WEBPACK_IMPORTED_MODULE_6__["showMessage"])('Central registrada', _this.snackBar); }, function (error) { return console.log(error); });
         this.router.navigate(['/landing', 'inicio-sesion', 'iniciar']);
     };
     RegistroComponent.prototype.iniciarFormulario = function () {
@@ -2589,7 +2616,7 @@ var RegistroComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./registro.component.html */ "./src/app/components/registro/registro.component.html"),
             styles: [__webpack_require__(/*! ./registro.component.css */ "./src/app/components/registro/registro.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSnackBar"]])
     ], RegistroComponent);
     return RegistroComponent;
 }());
@@ -3555,7 +3582,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APÏ_URL", function() { return APÏ_URL; });
 var LOCAL_URL = 'http://192.168.0.17:3000/';
 var PRODUCTION_URL = 'https://taximex-api.herokuapp.com/';
-var APÏ_URL = LOCAL_URL;
+var APÏ_URL = PRODUCTION_URL;
 
 
 /***/ }),
@@ -4105,9 +4132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/index.js");
-/* harmony import */ var _models_exports__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/exports */ "./src/app/models/exports.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 
 
 
@@ -4122,11 +4147,11 @@ var WebSocketService = /** @class */ (function () {
     WebSocketService.prototype.checkStatus = function () {
         var _this = this;
         this.socket.on('connect', function () {
-            Object(_models_exports__WEBPACK_IMPORTED_MODULE_3__["showMessage"])('Conectado', _this.snackBar);
+            console.log('Conectado');
             _this.socketStatus = true;
         });
         this.socket.on('disconnect', function () {
-            Object(_models_exports__WEBPACK_IMPORTED_MODULE_3__["showMessage"])('Desconectado', _this.snackBar);
+            console.log('Desconectado');
             _this.socketStatus = false;
         });
     };
@@ -4140,7 +4165,7 @@ var WebSocketService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_socket_io__WEBPACK_IMPORTED_MODULE_2__["Socket"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSnackBar"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [ngx_socket_io__WEBPACK_IMPORTED_MODULE_2__["Socket"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSnackBar"]])
     ], WebSocketService);
     return WebSocketService;
 }());
