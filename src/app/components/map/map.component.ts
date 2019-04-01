@@ -44,7 +44,7 @@ export class MapComponent implements OnInit {
       img: data.img,
       location: data.location,
       active: data.available
-    }
+    };
   }
 
   redirectTo(lat: number, lng: number) {

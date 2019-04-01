@@ -39,6 +39,9 @@ export class CountComponent implements OnInit {
   changeState() {
     this.checked = !this.checked;
     console.log(this.checked);
-    this.centralService.setManageable(this.checked);
+    this.centralService.setManageable(this.checked).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 }
