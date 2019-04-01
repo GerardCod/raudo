@@ -1642,7 +1642,7 @@ module.exports = ".avatar{\r\n    width: 100%;\r\n    height: 100%;\r\n    -o-ob
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"1:1\">\r\n  <mat-grid-tile>\r\n    <img class=\"avatar\" [src]=\"avatar\" alt=\"icono\">\r\n  </mat-grid-tile>\r\n  <mat-grid-tile>\r\n    <mat-list role=\"list\" class=\"user-data mat-elevation-z8\">\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Nombre: {{currentUser.centralName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Tarifa: {{currentUser.tax}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Encargado: {{currentUser.fullName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Teléfono: {{currentUser.phone}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Ciudad: {{currentUser.city}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Email: {{currentUser.email}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-slide-toggle [checked]=\"checked\" (click)=\"changeState\">Administrar peticiones</mat-slide-toggle>\r\n    </mat-list>\r\n  </mat-grid-tile>\r\n</mat-grid-list>\r\n"
+module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"1:1\">\r\n  <mat-grid-tile>\r\n    <img class=\"avatar\" [src]=\"avatar\" alt=\"icono\">\r\n  </mat-grid-tile>\r\n  <mat-grid-tile>\r\n    <mat-list role=\"list\" class=\"user-data mat-elevation-z8\">\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Nombre: {{currentUser.centralName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Tarifa: {{currentUser.tax}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Encargado: {{currentUser.fullName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Teléfono: {{currentUser.phone}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Ciudad: {{currentUser.city}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Email: {{currentUser.email}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-slide-toggle (click)=\"changeState()\" [checked]=\"checked\" (click)=\"changeState\">Administrar peticiones</mat-slide-toggle>\r\n    </mat-list>\r\n  </mat-grid-tile>\r\n</mat-grid-list>\r\n"
 
 /***/ }),
 
@@ -1686,7 +1686,9 @@ var CountComponent = /** @class */ (function () {
         };
     };
     CountComponent.prototype.changeState = function () {
+        this.checked = !this.checked;
         console.log(this.checked);
+        this.centralService.setManageable(this.checked);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -2315,6 +2317,7 @@ var MapComponent = /** @class */ (function () {
             _this.ready = true;
             _this.users = dataArray.map(_this.createUser);
         }, function (error) { return console.log(error); });
+        this.socket.listen('cab_disconnect').subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); });
     }
     MapComponent.prototype.ngOnInit = function () {
         this.listenAvailables();
@@ -3550,9 +3553,9 @@ var WrapperComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APÏ_URL", function() { return APÏ_URL; });
-// const LOCAL_URL = 'http://192.168.0.17:3000/';
+var LOCAL_URL = 'http://192.168.0.17:3000/';
 var PRODUCTION_URL = 'https://taximex-api.herokuapp.com/';
-var APÏ_URL = PRODUCTION_URL;
+var APÏ_URL = LOCAL_URL;
 
 
 /***/ }),
