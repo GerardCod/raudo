@@ -33,4 +33,13 @@ export class CentralService {
     const img = JSON.parse(localStorage.getItem('user')).img;
     return this.httpClient.get(`${APÏ_URL}images/stations/${img}`, {responseType: 'blob'});
   }
+
+  getConversation(id: any) {
+    return this.httpClient.get(`${APÏ_URL}messages/${id}`, this.options);
+  }
+
+  sendMessageCabs(message: any) {
+    return this.httpClient.post(`${APÏ_URL}messages/cabs`, message, this.options);
+  }
+
 }

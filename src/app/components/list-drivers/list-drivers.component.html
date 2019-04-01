@@ -1,0 +1,9 @@
+<mat-list class="list" role="list">
+  <mat-list-item (click)="emitContact(contact)" *ngFor="let contact of contactList" class="item grid grid--contact" role="listitem">
+    <img class="avatar" [src]="contact.img | imagen:'cab'" alt="avatar">
+    <div class="description flex flex--center">
+      <h6>{{contact.driver.name | name}}</h6>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

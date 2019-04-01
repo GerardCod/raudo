@@ -23,7 +23,8 @@ import {
   MatBadgeModule,
   MatDialogModule,
   MatTabsModule,
-  MatGridListModule
+  MatGridListModule,
+  MatExpansionModule
 } from '@angular/material';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AgmCoreModule } from '@agm/core';
@@ -68,6 +69,8 @@ import { environment } from 'src/environments/environment';
 import { PipesModule } from './pipes/pipes.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
+import { ListDriversComponent } from './components/list-drivers/list-drivers.component';
+import { ListClientsComponent } from './components/list-clients/list-clients.component';
 
 const config: SocketIoConfig = {
   url: environment.wsUrl,
@@ -110,7 +113,9 @@ const config: SocketIoConfig = {
     UploadImgComponent,
     ChangePasswordComponent,
     ChatComponent,
-    ConversationComponent
+    ConversationComponent,
+    ListDriversComponent,
+    ListClientsComponent
   ],
   imports: [
     BrowserModule,
@@ -144,7 +149,8 @@ const config: SocketIoConfig = {
     SocketIoModule.forRoot(config),
     PipesModule,
     ScrollingModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatExpansionModule
   ],
   entryComponents: [
     FormDeleteComponent,

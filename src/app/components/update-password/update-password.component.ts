@@ -56,19 +56,19 @@ export class UpdatePasswordComponent implements OnInit {
     .subscribe(
       data => {
         console.log(data);
-        this.cleanForm();
+        this.resetForm();
         showMessage('Contraseña actualizada', this.snackBar);
       },
       error => {
         console.log(error);
+        this.resetForm();
         showMessage(error, this.snackBar);
       }
     );
   }
 
-  cleanForm() {
-    this.form.controls['current'].setValue('');
-    this.form.controls['new'].setValue('');
-    this.form.controls['confirm'].setValue('');
+  resetForm() {
+    this.form.markAsPristine();
+    this.form.markAsUntouched();
   }
 }

@@ -33,7 +33,8 @@
 }
 
 .conversation__data{
-    background: #fefefe;
+    background: #eeeeee;
+    padding: 1em 2em;
 }
 
 .conversation__controls{
@@ -56,4 +57,37 @@
 
 .control__message{
     width: 90%;
+}
+
+.message{
+    width: auto;
+    max-width: 20vw;
+    height: auto;
+    padding: 0.5em 1em;
+    text-align: justify;
+    margin: 1em 0;
+}
+
+.message > p{
+    margin: 0;
+}
+
+.partner-message{
+    background: #fcfcfc;
+    border-radius: 0 1em 1em 1em;
+}
+
+.user-message{
+    background: var(--primary-color);
+    color: #fcfcfc;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em; 
+    margin-left: auto;
+}
+
+.hour{
+    text-align: right;
+    font-size: 0.8em;
 }

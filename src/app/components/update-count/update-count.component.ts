@@ -60,5 +60,11 @@ export class UpdateCountComponent implements OnInit {
         console.log(error);
       }
     );
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.form.markAsPristine();
+    this.form.markAsUntouched();
   }
 }

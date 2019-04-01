@@ -1,0 +1,66 @@
+.grid{
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.grid--contacts{
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 1fr;
+}
+
+.grid--contact{
+    grid-template-rows: 1fr;
+    grid-template-columns: 10% 1fr;
+}
+
+.search, .full{
+    width: 100%;
+    height: 100%;
+}
+
+.full{
+    padding: 0 0.5em;
+}
+
+.item{
+    background: #fcfcfc;
+    width: auto;
+    height: auto;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    cursor: pointer;
+}
+
+.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.description{
+    width: 100%;
+    height: 100%;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex--center{
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.data{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5em;
+}
+
+mat-spinner{
+    margin: 0 auto;
+    background: transparent;
+}
