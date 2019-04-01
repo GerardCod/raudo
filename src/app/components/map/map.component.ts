@@ -23,6 +23,11 @@ export class MapComponent implements OnInit {
       },
       error => console.log(error)
     );
+
+    this.socket.listen('cab_disconnect').subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 
   ngOnInit() {
