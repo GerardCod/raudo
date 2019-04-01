@@ -1642,7 +1642,7 @@ module.exports = ".avatar{\r\n    width: 100%;\r\n    height: 100%;\r\n    -o-ob
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"1:1\">\r\n  <mat-grid-tile>\r\n    <img class=\"avatar\" [src]=\"avatar\" alt=\"icono\">\r\n  </mat-grid-tile>\r\n  <mat-grid-tile>\r\n    <mat-list role=\"list\" class=\"user-data mat-elevation-z8\">\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Nombre: {{currentUser.centralName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Tarifa: {{currentUser.tax}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Encargado: {{currentUser.fullName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Teléfono: {{currentUser.phone}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Ciudad: {{currentUser.city}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Email: {{currentUser.email}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-slide-toggle [checked]=\"currentUser.manageable\" (click)=\"changeState\">Administrar peticiones</mat-slide-toggle>\r\n    </mat-list>\r\n  </mat-grid-tile>\r\n</mat-grid-list>\r\n"
+module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"1:1\">\r\n  <mat-grid-tile>\r\n    <img class=\"avatar\" [src]=\"avatar\" alt=\"icono\">\r\n  </mat-grid-tile>\r\n  <mat-grid-tile>\r\n    <mat-list role=\"list\" class=\"user-data mat-elevation-z8\">\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Nombre: {{currentUser.centralName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Tarifa: {{currentUser.tax}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Encargado: {{currentUser.fullName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Teléfono: {{currentUser.phone}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Ciudad: {{currentUser.city}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Email: {{currentUser.email}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-slide-toggle [checked]=\"checked\" (click)=\"changeState\">Administrar peticiones</mat-slide-toggle>\r\n    </mat-list>\r\n  </mat-grid-tile>\r\n</mat-grid-list>\r\n"
 
 /***/ }),
 
@@ -1670,6 +1670,7 @@ var CountComponent = /** @class */ (function () {
         this.centralService = centralService;
         this.snackBar = snackBar;
         this.img = JSON.parse(localStorage.getItem('user')).img;
+        this.checked = JSON.parse(localStorage.getItem('user')).manageable;
         this.centralService.getImage().subscribe(function (data) { return _this.createImageFromBlob(data); }, function (error) { return console.log(error); });
     }
     CountComponent.prototype.ngOnInit = function () {
@@ -1685,7 +1686,7 @@ var CountComponent = /** @class */ (function () {
         };
     };
     CountComponent.prototype.changeState = function () {
-        console.log(this.currentUser.manageable);
+        console.log(this.checked);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
