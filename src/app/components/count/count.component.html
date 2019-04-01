@@ -34,7 +34,7 @@
           Email: {{currentUser.email}}
         </h5>
       </mat-list-item>
-      <mat-slide-toggle (click)="changeState">Administrar peticiones</mat-slide-toggle>
+      <mat-slide-toggle [checked]="currentUser.maneageable" (click)="changeState">Administrar peticiones</mat-slide-toggle>
     </mat-list>
   </mat-grid-tile>
 </mat-grid-list>

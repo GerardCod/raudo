@@ -1,7 +1,7 @@
 <section class="conversation grid grid--conversation">
   <div class="conversation__name flex flex--left mat-elevation-z8">
     <img class="avatar" [src]="user.img | imagen:'cab'" alt="avatar">
-    <h3 class="username">{{user.driver.name}} {{user.driver.last_name}}</h3>
+    <h3 class="username font-Roboto">{{user.driver.name}} {{user.driver.last_name}}</h3>
     <mat-divider></mat-divider>
   </div>
   <cdk-virtual-scroll-viewport class="conversation__data" [itemSize]="50">
@@ -9,10 +9,10 @@
     class="message" 
     [ngClass]="{'partner-message': message.from != currentUser._id, 'user-message': currentUser._id == message.from}" 
     *ngFor="let message of messages">
-    <p>
+    <p class="font-Roboto">
       {{ message.text }}
     </p>
-    <p class="hour">{{ message.created_at | date:'shortTime' }}</p>
+    <p class="hour font-Roboto">{{ message.created_at | date:'shortTime' }}</p>
     </div>
     
     <mat-divider></mat-divider>
@@ -26,5 +26,3 @@
     </button>
   </div>
 </section>
-
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum voluptatibus laboriosam, aliquid non sequi accusantium consequuntur aliquam qui aspernatur quo nulla neque dolorum, quas minima perferendis suscipit id reprehenderit sint.
