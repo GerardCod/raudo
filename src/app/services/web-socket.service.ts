@@ -16,12 +16,12 @@ export class WebSocketService {
 
   checkStatus() {
     this.socket.on('connect', () => {
-      showMessage('Conectado', this.snackBar);
+      console.log('Conectado');
       this.socketStatus = true;
     });
 
     this.socket.on('disconnect', () => {
-      showMessage('Desconectado', this.snackBar);
+      console.log('Desconectado');
       this.socketStatus = false;
     });
   }

@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { AuthService } from 'src/app/services/auth.service';
 import { Central } from '../../models/central';
 import { Router } from '@angular/router';
+import { showMessage } from 'src/app/models/exports';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-registro',
@@ -14,7 +16,7 @@ export class RegistroComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router, private snackBar: MatSnackBar) {
     this.iniciarFormulario();
   }
 
@@ -35,7 +37,7 @@ export class RegistroComponent implements OnInit {
     );
 
     this.auth.centralSignUp(central).subscribe(
-      response => console.log(response),
+      response => showMessage('Central registrada', this.snackBar),
       error => console.log(error)
     );
 
