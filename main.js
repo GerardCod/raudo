@@ -1688,7 +1688,7 @@ var CountComponent = /** @class */ (function () {
     CountComponent.prototype.changeState = function () {
         this.checked = !this.checked;
         console.log(this.checked);
-        this.centralService.setManageable(this.checked);
+        this.centralService.setManageable(this.checked).subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
