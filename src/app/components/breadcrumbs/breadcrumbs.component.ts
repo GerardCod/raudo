@@ -31,22 +31,19 @@ export class BreadcrumbsComponent implements OnInit {
         routerUrl = router.urlAfterRedirects;
         if (routerUrl && typeof routerUrl === 'string') {
           target = this.menu;
-          this.breadCrumbsList.length = 0;
           routerList = routerUrl.slice(1).split('/');
           routerList.forEach((router, index) => {
             target = target.find(page => page.path.slice(2) === router);
 
-            this.breadCrumbsList.push({
+            this.menu.push({
               name: target.name,
-              path: (index === 0) ? target.path : `${this.breadCrumbsList[index - 1].path}/${target.path.slice(2)}`
+              path: (index === 0) ? target.path : `${this.menu[index - 1].path}/${target.path.slice(2)}`
             });
 
             if ( index + 1 !== routerList.length ) {
               target = target.children;
             }
           });
-
-          console.log(this.breadCrumbsList);
         }
       }
     );
