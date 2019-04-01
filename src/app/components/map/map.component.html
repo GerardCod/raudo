@@ -7,7 +7,7 @@
           <mat-list-item *ngIf="user.active">
             <img matListAvatar [src]="user.img | imagen:'cab'" alt="..." />
             <div class="user" matLine (click)="redirectTo(user.location.latitude, user.location.longitude)">
-              <h6 >{{ user.driver.name | name }}</h6>
+              <h4>{{ user.driver.name | name }}</h4>
               <div *ngIf="user.active" hclass="user-active font-active"></div>
             </div>
             <mat-divider></mat-divider>

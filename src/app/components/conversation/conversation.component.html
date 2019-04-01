@@ -1,7 +1,7 @@
 <section class="conversation grid grid--conversation">
   <div class="conversation__name flex flex--left mat-elevation-z8">
     <img class="avatar" [src]="user.img | imagen:'cab'" alt="avatar">
-    <h6 class="username">{{user.driver.name}} {{user.driver.last_name}}</h6>
+    <h3 class="username">{{user.driver.name}} {{user.driver.last_name}}</h3>
     <mat-divider></mat-divider>
   </div>
   <cdk-virtual-scroll-viewport class="conversation__data" [itemSize]="50">
