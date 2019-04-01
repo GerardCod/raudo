@@ -12,7 +12,7 @@ import { showMessage } from 'src/app/models/exports';
 export class UploadImgComponent implements OnInit {
 
   form: FormGroup;
-  private file: File;
+  public file: File;
   urlImg: any;
   img: any;
 

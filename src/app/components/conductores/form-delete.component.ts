@@ -10,7 +10,7 @@ import { showMessage } from 'src/app/models/exports';
 
   export class FormDeleteComponent {
     constructor(private dialogRef: MatDialogRef<FormDeleteComponent>,
-      @Inject(MAT_DIALOG_DATA) private data: any,
+      @Inject(MAT_DIALOG_DATA) public data: any,
       private driverService: DriversService,
       private snackBar: MatSnackBar) {}
 

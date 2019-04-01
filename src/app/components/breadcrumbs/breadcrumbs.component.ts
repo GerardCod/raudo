@@ -14,11 +14,11 @@ export class BreadcrumbsComponent implements OnInit {
   breadCrumbsList: Array<any> = [];
 
   constructor(private router: Router, private breadCrumbService: BreadcrumbService) {
+    this.menu = this.breadCrumbService.getRoutes();
+    this.listenRouting();
   }
 
   ngOnInit() {
-    this.menu = this.breadCrumbService.getRoutes();
-    this.listenRouting();
   }
 
   listenRouting () {

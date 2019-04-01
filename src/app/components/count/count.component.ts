@@ -34,4 +34,8 @@ export class CountComponent implements OnInit {
       console.log(this.avatar);
     };
   }
+
+  changeState() {
+    console.log(this.currentUser.manageable);
+  }
 }

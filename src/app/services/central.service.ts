@@ -42,4 +42,8 @@ export class CentralService {
     return this.httpClient.post(`${APÏ_URL}messages/cabs`, message, this.options);
   }
 
+  setManageable(flag: boolean){
+    return this.httpClient.patch(`${APÏ_URL}stations/manageable`,{manageable: flag}, this.options);
+  }
+
 }

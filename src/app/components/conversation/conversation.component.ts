@@ -30,7 +30,7 @@ export class ConversationComponent implements OnInit, OnChanges {
     this.getConversation();
   }
 
-  getConversation(){
+  getConversation() {
     this.centralService.getConversation(this.user._id).subscribe(
       (data: any) => {
         this.messages = data.messages;

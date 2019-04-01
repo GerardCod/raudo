@@ -24,7 +24,8 @@ import {
   MatDialogModule,
   MatTabsModule,
   MatGridListModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatSlideToggleModule
 } from '@angular/material';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AgmCoreModule } from '@agm/core';
@@ -65,15 +66,16 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
 import { UploadImgComponent } from './components/upload-img/upload-img.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
-import { environment } from 'src/environments/environment';
+import { APÏ_URL} from '../app/global/config';
 import { PipesModule } from './pipes/pipes.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { ListDriversComponent } from './components/list-drivers/list-drivers.component';
 import { ListClientsComponent } from './components/list-clients/list-clients.component';
+import { RequestComponent } from './components/request/request.component';
 
 const config: SocketIoConfig = {
-  url: environment.wsUrl,
+  url: APÏ_URL,
   options: {}
 };
 
@@ -115,7 +117,8 @@ const config: SocketIoConfig = {
     ChatComponent,
     ConversationComponent,
     ListDriversComponent,
-    ListClientsComponent
+    ListClientsComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,
@@ -150,7 +153,8 @@ const config: SocketIoConfig = {
     PipesModule,
     ScrollingModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSlideToggleModule
   ],
   entryComponents: [
     FormDeleteComponent,
