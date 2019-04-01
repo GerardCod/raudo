@@ -530,6 +530,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_conversation_conversation_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/conversation/conversation.component */ "./src/app/components/conversation/conversation.component.ts");
 /* harmony import */ var _components_list_drivers_list_drivers_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/list-drivers/list-drivers.component */ "./src/app/components/list-drivers/list-drivers.component.ts");
 /* harmony import */ var _components_list_clients_list_clients_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/list-clients/list-clients.component */ "./src/app/components/list-clients/list-clients.component.ts");
+/* harmony import */ var _components_request_request_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/request/request.component */ "./src/app/components/request/request.component.ts");
+
 
 
 
@@ -631,7 +633,8 @@ var AppModule = /** @class */ (function () {
                 _components_chat_chat_component__WEBPACK_IMPORTED_MODULE_50__["ChatComponent"],
                 _components_conversation_conversation_component__WEBPACK_IMPORTED_MODULE_51__["ConversationComponent"],
                 _components_list_drivers_list_drivers_component__WEBPACK_IMPORTED_MODULE_52__["ListDriversComponent"],
-                _components_list_clients_list_clients_component__WEBPACK_IMPORTED_MODULE_53__["ListClientsComponent"]
+                _components_list_clients_list_clients_component__WEBPACK_IMPORTED_MODULE_53__["ListClientsComponent"],
+                _components_request_request_component__WEBPACK_IMPORTED_MODULE_54__["RequestComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -666,7 +669,8 @@ var AppModule = /** @class */ (function () {
                 _pipes_pipes_module__WEBPACK_IMPORTED_MODULE_49__["PipesModule"],
                 _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_9__["ScrollingModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatProgressSpinnerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatExpansionModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSlideToggleModule"]
             ],
             entryComponents: [
                 _components_conductores_form_delete_component__WEBPACK_IMPORTED_MODULE_36__["FormDeleteComponent"],
@@ -1640,7 +1644,7 @@ module.exports = ".avatar{\r\n    width: 100%;\r\n    height: 100%;\r\n    -o-ob
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"1:1\">\r\n  <mat-grid-tile>\r\n    <img class=\"avatar\" [src]=\"avatar\" alt=\"icono\">\r\n  </mat-grid-tile>\r\n  <mat-grid-tile>\r\n    <mat-list role=\"list\" class=\"user-data mat-elevation-z8\">\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Nombre: {{currentUser.centralName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Tarifa: {{currentUser.tax}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Encargado: {{currentUser.fullName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Teléfono: {{currentUser.phone}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Ciudad: {{currentUser.city}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Email: {{currentUser.email}}\r\n        </h5>\r\n      </mat-list-item>\r\n    </mat-list>\r\n  </mat-grid-tile>\r\n</mat-grid-list>\r\n"
+module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"1:1\">\r\n  <mat-grid-tile>\r\n    <img class=\"avatar\" [src]=\"avatar\" alt=\"icono\">\r\n  </mat-grid-tile>\r\n  <mat-grid-tile>\r\n    <mat-list role=\"list\" class=\"user-data mat-elevation-z8\">\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Nombre: {{currentUser.centralName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Tarifa: {{currentUser.tax}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Encargado: {{currentUser.fullName}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Teléfono: {{currentUser.phone}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Ciudad: {{currentUser.city}}\r\n        </h5>\r\n      </mat-list-item>\r\n      <mat-list-item role=\"listitem\">\r\n        <h5 class=\"white-bold\">\r\n          Email: {{currentUser.email}}\r\n        </h5>\r\n      </mat-list-item>\r\n    </mat-list>\r\n    <mat-slide-toggle (click)=\"changeState\">Administrar peticiones</mat-slide-toggle>\r\n  </mat-grid-tile>\r\n</mat-grid-list>\r\n"
 
 /***/ }),
 
@@ -1681,6 +1685,9 @@ var CountComponent = /** @class */ (function () {
             _this.avatar = event.target.result;
             console.log(_this.avatar);
         };
+    };
+    CountComponent.prototype.changeState = function () {
+        console.log(this.currentUser.manageable);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -2583,6 +2590,62 @@ var RegistroComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], RegistroComponent);
     return RegistroComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/request/request.component.css":
+/*!**********************************************************!*\
+  !*** ./src/app/components/request/request.component.css ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVxdWVzdC9yZXF1ZXN0LmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/components/request/request.component.html":
+/*!***********************************************************!*\
+  !*** ./src/app/components/request/request.component.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  request works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/request/request.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/components/request/request.component.ts ***!
+  \*********************************************************/
+/*! exports provided: RequestComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RequestComponent", function() { return RequestComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var RequestComponent = /** @class */ (function () {
+    function RequestComponent() {
+    }
+    RequestComponent.prototype.ngOnInit = function () {
+    };
+    RequestComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-request',
+            template: __webpack_require__(/*! ./request.component.html */ "./src/app/components/request/request.component.html"),
+            styles: [__webpack_require__(/*! ./request.component.css */ "./src/app/components/request/request.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], RequestComponent);
+    return RequestComponent;
 }());
 
 
@@ -3949,6 +4012,9 @@ var CentralService = /** @class */ (function () {
     };
     CentralService.prototype.sendMessageCabs = function (message) {
         return this.httpClient.post(_global_config__WEBPACK_IMPORTED_MODULE_3__["APÏ_URL"] + "messages/cabs", message, this.options);
+    };
+    CentralService.prototype.setManageable = function (flag) {
+        return this.httpClient.patch(_global_config__WEBPACK_IMPORTED_MODULE_3__["APÏ_URL"] + "stations/manageable", { manageable: flag }, this.options);
     };
     CentralService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
