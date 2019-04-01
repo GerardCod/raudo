@@ -1,10 +1,10 @@
 <div>
   <ol>
     <li *ngFor="let item of menu; let i = index">
-      <a [routerLink]="item.path" *ngIf="i !== (menu.length - 1)">
+      <a [routerLink]="item.path" *ngIf="i !== (menu.length)">
         {{ item.name }}
       </a>
-      <span *ngIf="i === (menu.length - 1)">{{ item.name }}</span>
+      <span *ngIf="i === (menu.length)">{{ item.name }}</span>
     </li>
   </ol>
 </div>
