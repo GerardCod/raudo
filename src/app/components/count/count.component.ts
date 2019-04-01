@@ -12,10 +12,11 @@ export class CountComponent implements OnInit {
 @Input() currentUser: any;
   img: any;
   avatar: any;
+  checked: boolean;
 
   constructor(private centralService: CentralService, private snackBar: MatSnackBar) {
     this.img = JSON.parse(localStorage.getItem('user')).img;
-
+    this.checked = JSON.parse(localStorage.getItem('user')).manageable;
     this.centralService.getImage().subscribe(
       data => this.createImageFromBlob(data),
       error => console.log(error)
@@ -36,6 +37,6 @@ export class CountComponent implements OnInit {
   }
 
   changeState() {
-    console.log(this.currentUser.manageable);
+    console.log(this.checked);
   }
 }
