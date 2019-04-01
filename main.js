@@ -866,19 +866,17 @@ var BreadcrumbsComponent = /** @class */ (function () {
             routerUrl = router.urlAfterRedirects;
             if (routerUrl && typeof routerUrl === 'string') {
                 target = _this.menu;
-                _this.breadCrumbsList.length = 0;
                 routerList = routerUrl.slice(1).split('/');
                 routerList.forEach(function (router, index) {
                     target = target.find(function (page) { return page.path.slice(2) === router; });
-                    _this.breadCrumbsList.push({
+                    _this.menu.push({
                         name: target.name,
-                        path: (index === 0) ? target.path : _this.breadCrumbsList[index - 1].path + "/" + target.path.slice(2)
+                        path: (index === 0) ? target.path : _this.menu[index - 1].path + "/" + target.path.slice(2)
                     });
                     if (index + 1 !== routerList.length) {
                         target = target.children;
                     }
                 });
-                console.log(_this.breadCrumbsList);
             }
         });
     };
